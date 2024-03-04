@@ -1,0 +1,12 @@
+site_name: SR NJU
+theme:
+  name: 'material'
+nav:
+  - 关于我们: index.md
+  - 服务器技术文档:
+    - 服务器基本信息: 1/1_1.md
+    - 环境信息: 1/1_2.md
+  - Python虚拟环境:
+    - 预备知识: 2/2_1.md
+    - Windows配置虚拟环境: 2/2_2.md
+    - 复现THU-DL-SR记录: 2/2_3.md
