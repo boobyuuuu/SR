@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../2_1/">
+        <link rel="prev" href="../3_1/">
       
       
-        <link rel="next" href="../2_3/">
+        <link rel="next" href="../3_3/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#22-windows" class="md-skip">
+        <a href="#32-windows" class="md-skip">
           Skip to content
         </a>
       
@@ -292,6 +292,26 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2/2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    mkdocs操作文档
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -304,10 +324,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -318,8 +338,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Python虚拟环境
           </label>
@@ -332,7 +352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2_1/" class="md-nav__link">
+      <a href="../3_1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -362,6 +382,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Windows配置虚拟环境
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -371,6 +402,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows下常调用的目录
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#windows_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      举个例子：在Windows上配置虚拟环境
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -384,7 +452,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2_3/" class="md-nav__link">
+      <a href="../3_3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -425,6 +493,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows下常调用的目录
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#windows_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      举个例子：在Windows上配置虚拟环境
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -438,7 +532,67 @@
                   
 
 
-<h1 id="22-windows">2.2 Windows 配置虚拟环境</h1>
+<h1 id="32-windows">3.2 Windows 配置虚拟环境</h1>
+<h2 id="windows">Windows下常调用的目录</h2>
+<p>在Windows系统下涉及到多版本Python时，常常需要手动指定Python的位置，以下位置则尤为重要。</p>
+<pre><code># 非虚拟环境下
+# 以Python3.9为例
+
+# Python默认安装位置
+C:\Users\账户名\AppData\Local\Programs\Python\Python39\python.exe
+# 根环境pip默认安装位置
+C:\Users\账户名\AppData\Local\Programs\Python\Python39\Scripts\pip.exe
+</code></pre>
+<pre><code># 虚拟环境下
+
+# Python位置
+Yournamehere\Scripts\Python.exe
+# pip位置
+Yournamehere\Scripts\pip.exe
+</code></pre>
+<h2 id="windows_1">举个例子：在Windows上配置虚拟环境</h2>
+<p>在看接下来的内容时，注意账户名，python版本，环境名都需要自己修改。</p>
+<p>代码的具体意义不再解释，可以自行GPT</p>
+<p>1.建立环境</p>
+<p>在上一级目录下打开终端（cmd或Powershell），执行以下命令</p>
+<pre><code>&amp; &quot;C:\Users\Steven Lin\AppData\Local\Programs\Python\Python39\python.exe&quot; -m venv Yournamehere
+</code></pre>
+<p>终端实际显示</p>
+<pre><code>PS D:\Coding&gt; &amp; &quot;C:\Users\Steven Lin\AppData\Local\Programs\Python\Python39\python.exe&quot; -m venv Yournamehere
+</code></pre>
+<p>无输出内容，会在打开终端的目录创建一个名为Yournamehere的文件夹</p>
+<p>2.检查环境</p>
+<p>在.\Scripts目录下打开终端</p>
+<pre><code>输入：python
+返回：系统环境变量中的Python
+输入：.\python
+返回：本虚拟环境中的Python版本
+</code></pre>
+<pre><code>输入：pip list
+返回：系统环境变量中所配置Python的根环境（根pip）内的第三方库
+输入：.\pip list
+返回：本虚拟环境第三方库（应该非常非常少）
+</code></pre>
+<p><strong>为了防止混淆，非常不建议在  外环境  安装虚拟环境库包</strong></p>
+<p>3.启动环境（Windows版）</p>
+<p>在.\Scripts目录下打开终端</p>
+<pre><code>输入: .\activate
+返回：(Yournamehere) PS D:\Coding\Yournamehere\Scripts&gt;
+</code></pre>
+<p>代表成功进入环境，前边的括号是虚拟环境名</p>
+<p>4.安装第三方库</p>
+<p>在虚拟环境内，使用指令安装第三方库</p>
+<p>例如，Jupyter Notebook就可以在每个环境下分别安装</p>
+<pre><code>pip install 库名称==版本号
+</code></pre>
+<p>5.退出虚拟环境</p>
+<p>在虚拟环境内，使用以下指令退出虚拟环境</p>
+<pre><code>deactivate
+</code></pre>
+<p>6.备注</p>
+<p>在vscode中，可以使用Python Environment Manager来确认自己工作的路径，并使用切换运行具体文件的Python环境（版本）。</p>
+<p><img alt="Python Environment Manager" src="../3.2.1.png" />
+<em>2.2.1 Python Environment Manager</em></p>
 
 
 
