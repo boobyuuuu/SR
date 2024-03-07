@@ -1,3 +1,3 @@
-# About us
+# Index
 
-https://mkdocs-like-code.readthedocs.io/zh-cn/latest/MkDocs-advanced-operations/files-layout/
+Index暂时没想好写什么东西
