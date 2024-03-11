@@ -9,10 +9,8 @@
       
       
       
-        <link rel="prev" href="../../2/2_2/">
+        <link rel="prev" href="../3_3/">
       
-      
-        <link rel="next" href="../3_2/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +18,7 @@
     
     
       
-        <title>3.1 预备知识 - SR NJU</title>
+        <title>3.4 演示 - SR NJU</title>
       
     
     
@@ -61,11 +59,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#_1" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -98,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              3.1 预备知识
+              3.4 演示
             
           </span>
         </div>
@@ -392,30 +385,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    3.1 预备知识
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../3_1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -424,53 +397,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    <span class="md-ellipsis">
-      Python版本共存介绍：
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#python_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Python虚拟环境结构：
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      环境变量相关
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -522,10 +448,17 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../3_4/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -534,6 +467,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -563,43 +497,6 @@
   
   
   
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    <span class="md-ellipsis">
-      Python版本共存介绍：
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#python_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Python虚拟环境结构：
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      环境变量相关
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -614,23 +511,9 @@
                   
 
 
-<h1 id="_1">预备知识</h1>
-<h2 id="python">Python版本共存介绍：</h2>
-<p>以Python3.10.6为例，称3.10.*为一个Python大版本，*.6称为小版本。则Python的版本共存原则为</p>
-<p>大版本可共存，小版本不可共存（安装必定报错）。</p>
-<h2 id="python_1">Python虚拟环境结构：</h2>
-<p>我们使用原生的venv工具管理Python的虚拟环境</p>
-<p>其它工具如Anaconda、Virtualenv都可以管理虚拟环境。</p>
-<p>在安装Python3.4及以后时，会自动安装pip；在安装Python3.6及以后时，会自动安装venv。</p>
-<p>综上，我们将Python虚拟环境结构示意如下。</p>
-<p>各个大版本下的所有环境相互独立，各个环境下的pip库相互独立。</p>
-<p><img alt="结构图" src="../3.1.1.jpg" />
-<center><em>3.1.1 结构图</em></center></p>
-<h2 id="_2">环境变量相关</h2>
-<p>我们一般直接在控制台输入的python, pip等指令，实际是一个“快捷指令”</p>
-<p>原因在于安装Python时，已经将这些Python.exe/pip.exe的安装目录添加进了系统Path这一环境变量中。</p>
-<p>在面临多版本的问题时，为了防止出错，我们可以手动指定这些文件的位置。其他使用方法和之前一样。</p>
-<p>下一篇会详细提到。</p>
+  <h1>3.4 演示</h1>
+
+<p>testtesttest123</p>
 
 
 
