@@ -12,7 +12,7 @@
         <link rel="prev" href="../2_1/">
       
       
-        <link rel="next" href="../../3/3_1/">
+        <link rel="next" href="../2_3/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>2.3 服务器环境信息 - SR NJU</title>
+        <title>2.2 服务器环境信息 - SR NJU</title>
       
     
     
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              2.3 服务器环境信息
+              2.2 服务器环境信息
             
           </span>
         </div>
@@ -315,7 +315,7 @@
         
   
   <span class="md-ellipsis">
-    2.2 服务器基本信息
+    2.1 服务器基本信息
   </span>
   
 
@@ -345,7 +345,7 @@
           
   
   <span class="md-ellipsis">
-    2.3 服务器环境信息
+    2.2 服务器环境信息
   </span>
   
 
@@ -356,7 +356,7 @@
         
   
   <span class="md-ellipsis">
-    2.3 服务器环境信息
+    2.2 服务器环境信息
   </span>
   
 
@@ -380,9 +380,42 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      操作系统
+      系统
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      网络
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      网络-打开网口：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      网络-正常访问墙内网络：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -390,15 +423,6 @@
   <a href="#nvidia" class="md-nav__link">
     <span class="md-ellipsis">
       NVIDIA相关
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#jupyter-notebook" class="md-nav__link">
-    <span class="md-ellipsis">
-      Jupyter Notebook使用方法
     </span>
   </a>
   
@@ -417,6 +441,27 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.3 服务器使用方法
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -584,9 +629,42 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      操作系统
+      系统
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      网络
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      网络-打开网口：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      网络-正常访问墙内网络：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -594,15 +672,6 @@
   <a href="#nvidia" class="md-nav__link">
     <span class="md-ellipsis">
       NVIDIA相关
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#jupyter-notebook" class="md-nav__link">
-    <span class="md-ellipsis">
-      Jupyter Notebook使用方法
     </span>
   </a>
   
@@ -633,39 +702,52 @@
 
 
 <h1 id="_1">服务器环境信息</h1>
-<p>更新时间：2024年3月7日</p>
-<p>可用账号：ylin（CUDA会以用户安装，因此会和账号有关）</p>
-<h2 id="_2">操作系统</h2>
-<p>Ubuntu 20.04.6(x86_64)</p>
+<p>更新时间：2024年3月21日</p>
+<p>可用账号：ylin1</p>
+<h2 id="_2">系统</h2>
+<p>Ubuntu 22.04.4 (x86_64)</p>
+<p>apt完全使用清华大学镜像源</p>
+<p>禁止了nouveau驱动以安装Nvidia驱动</p>
+<p>关闭了gdm3桌面服务</p>
+<p>mokutil密码hayatori</p>
+<h2 id="_3">网络</h2>
+<h3 id="-">网络-打开网口：</h3>
+<pre><code>ip addr
+</code></pre>
+<p>主要网口："2: enp4s0f0"</p>
+<pre><code>打开即可访问教育网，其他网口不要动
+
+除lo网口（loop回环）外，网口均为自动获取ip地址（如需再次设置参考gpt）
+</code></pre>
+<h3 id="-_1">网络-正常访问墙内网络：</h3>
+<pre><code># 进入root模式
+sudo -i
+# 切换目录
+cd /home/jzhang/bin
+# 打开login文件，写统一身份认证账号密码（学号：密码）
+nano login
+# Ctrl+W写入Ctrl+X关闭，运行脚本
+run ./login
+</code></pre>
 <h2 id="nvidia">NVIDIA相关</h2>
-<p>主驱动版本：545.29.06</p>
-<p>CUDA版本：12.1</p>
-<p>CUDNN版本：8902</p>
-<p>TensorRT：没有安装</p>
-<h2 id="jupyter-notebook">Jupyter Notebook使用方法</h2>
-<p>在控制台输入jupyter notebook，弹出以下一大串。</p>
-<pre><code>[I 20:58:11.012 NotebookApp] [jupyter_nbextensions_configurator] enabled 0.6.3
-[I 20:58:11.012 NotebookApp] Serving notebooks from local directory: /home/ylin
-[I 20:58:11.012 NotebookApp] The Jupyter Notebook is running at:
-[I 20:58:11.012 NotebookApp] http://210.28.140.133:8888/?token=76f9dc7e15384aa62a563b049ad94b36144d153dfa6cc613
-[I 20:58:11.012 NotebookApp]  or http://127.0.0.1:8888/?token=76f9dc7e15384aa62a563b049ad94b36144d153dfa6cc613
-[I 20:58:11.013 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
-[W 20:58:11.015 NotebookApp] No web browser found: could not locate runnable browser.
+<p>主驱动版本：545</p>
+<pre><code>＃安装方法
+sudo apt-get install nvidia-driver-545
 </code></pre>
-<p>按住Ctrl点击上方的第一个地址打开</p>
-<pre><code>http://210.28.140.133:8888/?token=76f9dc7e15384aa62a563b049ad94b36144d153dfa6cc613
+<p>CUDA/CUDNN版本：12.1/8902（其实这个torch也会带，换torch版本会自动换cuda），我们装的是管理器</p>
+<pre><code>＃安装方法
+sudo apt install nvidia-cuda-toolkit
 </code></pre>
-<p>这样就实现了从外网访问<strong>启动在服务器本地的jupyter服务器</strong>的过程。</p>
 <h2 id="python">Python</h2>
 <p>已安装数：1</p>
-<p>版本：3.8.10</p>
+<p>版本：3.10.12</p>
 <p>主环境下重要插件：</p>
 <p>numpy==1.24.3</p>
 <p>jupyter==1.0.0</p>
-<p>keras=2.13.1</p>
+<p>keras==2.13.1</p>
 <p>TensorFlow==2.13.1</p>
-<p>torch==1.10.0</p>
-<p>torchvision==0.11.1</p>
+<p>torch==2.0</p>
+<p>torchvision==0.15.0</p>
 
 
 
