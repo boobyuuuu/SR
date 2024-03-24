@@ -1,1 +1,5 @@
-Epoch [1/1], Average Loss: 0.062362,Current LR: 0.00050000
+Epoch [1/5], Average Loss: 0.217034
+Epoch [2/5], Average Loss: 0.189752
+Epoch [3/5], Average Loss: 0.183278
+Epoch [4/5], Average Loss: 0.153087
+Epoch [5/5], Average Loss: 0.128663
