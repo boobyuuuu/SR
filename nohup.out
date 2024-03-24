@@ -1,0 +1,151 @@
+03/24/2024 02:57:57 PM INFO: Reading notebook ./codes/Train.ipynb
+03/24/2024 02:57:58 PM INFO: Running cell:
+import torch; torch.manual_seed(0)
+import numpy as np
+import matplotlib.pyplot as plt
+import torch.nn as nn
+from torch.utils.data import DataLoader
+from function.VAE import VAE
+from function.Dir import Dir
+from function.Dataset import ImageDataset
+from function.Loss import Custom_criterion
+from function.Log import log
+
+NUM_TO_LEARN = 5000
+BATCH_SIZE = 256
+EPOCHS = 1000
+LATENTDIM = 256
+LEARN_RATE = 5e-5
+
+DEVICE = 'cuda'
+LOSS_PLOT = []
+EPOCH_PLOT = []
+
+03/24/2024 02:58:00 PM INFO: Cell returned
+03/24/2024 02:58:00 PM INFO: Running cell:
+name = f'{EPOCHS}epo_{BATCH_SIZE}bth_{LATENTDIM}latn'
+dataset = ImageDataset(NUM_TO_LEARN, 0) # 0代表使用STED_HC文件训练，1代表使用STED文件训练
+dataloader = DataLoader(dataset, BATCH_SIZE, True)
+vae = VAE(LATENTDIM).to(DEVICE)
+vae = nn.DataParallel(vae)
+criterion = Custom_criterion().cuda()
+optimizer = torch.optim.AdamW(vae.parameters(), lr = LEARN_RATE)
+
+03/24/2024 02:58:13 PM INFO: Cell returned
+03/24/2024 02:58:13 PM INFO: Running cell:
+def train(dataloader, criterion, optimizer, num_epochs):
+    with open('training.log', 'w') as nothing: # 清空原log
+        pass
+    for epoch in range(num_epochs):
+        vae.train() # 切换成训练模式
+        total_loss = 0.0
+        for _, (img_LR, img_HR) in enumerate(dataloader):
+            img_LR = torch.squeeze(img_LR,dim = 1).to(DEVICE)
+            img_HR = torch.squeeze(img_HR,dim = 1).to(DEVICE)
+            img_SR, _, _ = vae(img_LR)
+            img_SR = img_SR.to(DEVICE)
+            # 这步为止，img_LR,img_HR,img_SR均是[batchsize,不知道是什么,宽，高]
+            loss = criterion(img_SR, img_HR) # 每个BATCH的loss，64张图平均
+            optimizer.zero_grad()
+            loss.backward() # 最耗算力的一步
+            optimizer.step()
+            total_loss += loss.item()
+        avg_loss = total_loss / len(dataloader) # 每个EPOCH的loss，全部数据集的平均
+        print(f"Epoch [{epoch+1}/{num_epochs}], Average Loss: {avg_loss:.6f}")
+        log(f"Epoch [{epoch+1}/{num_epochs}], Average Loss: {avg_loss:.6f}")
+
+        LOSS_PLOT.append(total_loss)
+        EPOCH_PLOT.append(epoch)
+        if epoch % 300 == 0:
+            torch.save(vae.state_dict(), Dir.TEMP()+'/checkpoint.pth')
+
+03/24/2024 02:58:13 PM INFO: Cell returned
+03/24/2024 02:58:13 PM INFO: Running cell:
+print(DEVICE)
+print('start!')
+train(dataloader, criterion, optimizer, EPOCHS)
+print('succsessfully done!')
+
+[IPKernelApp] WARNING | Parent appears to have exited, shutting down.
+03/24/2024 03:08:15 PM INFO: Reading notebook ./codes/Train.ipynb
+03/24/2024 03:08:16 PM INFO: Running cell:
+import torch; torch.manual_seed(0)
+import numpy as np
+import matplotlib.pyplot as plt
+import torch.nn as nn
+from torch.utils.data import DataLoader
+from function.VAE import VAE
+from function.Dir import Dir
+from function.Dataset import ImageDataset
+from function.Loss import Custom_criterion
+from function.Log import log
+
+NUM_TO_LEARN = 4000
+BATCH_SIZE = 128
+EPOCHS = 1000
+LATENTDIM = 256
+LEARN_RATE = 5e-6
+
+DEVICE = 'cuda'
+LOSS_PLOT = []
+EPOCH_PLOT = []
+
+03/24/2024 03:08:18 PM INFO: Cell returned
+03/24/2024 03:08:18 PM INFO: Running cell:
+name = f'{EPOCHS}epo_{BATCH_SIZE}bth_{LATENTDIM}latn'
+dataset = ImageDataset(NUM_TO_LEARN, 0) # 0代表使用STED_HC文件训练，1代表使用STED文件训练
+dataloader = DataLoader(dataset, BATCH_SIZE, True)
+vae = VAE(LATENTDIM).to(DEVICE)
+vae = nn.DataParallel(vae)
+criterion = Custom_criterion().cuda()
+optimizer = torch.optim.AdamW(vae.parameters(), lr = LEARN_RATE)
+
+03/24/2024 03:08:29 PM INFO: Cell returned
+03/24/2024 03:08:29 PM INFO: Running cell:
+def train(dataloader, criterion, optimizer, num_epochs):
+    with open('training.log', 'w') as nothing: # 清空原log
+        pass
+    for epoch in range(num_epochs):
+        vae.train() # 切换成训练模式
+        total_loss = 0.0
+        for _, (img_LR, img_HR) in enumerate(dataloader):
+            img_LR = torch.squeeze(img_LR,dim = 1).to(DEVICE)
+            img_HR = torch.squeeze(img_HR,dim = 1).to(DEVICE)
+            img_SR, _, _ = vae(img_LR)
+            img_SR = img_SR.to(DEVICE)
+            # 这步为止，img_LR,img_HR,img_SR均是[batchsize,不知道是什么,宽，高]
+            loss = criterion(img_SR, img_HR) # 每个BATCH的loss，64张图平均
+            optimizer.zero_grad()
+            loss.backward() # 最耗算力的一步
+            optimizer.step()
+            total_loss += loss.item()
+        avg_loss = total_loss / len(dataloader) # 每个EPOCH的loss，全部数据集的平均
+        print(f"Epoch [{epoch+1}/{num_epochs}], Average Loss: {avg_loss:.6f}")
+        log(f"Epoch [{epoch+1}/{num_epochs}], Average Loss: {avg_loss:.6f}")
+
+        LOSS_PLOT.append(total_loss)
+        EPOCH_PLOT.append(epoch)
+        if epoch % 300 == 0:
+            torch.save(vae.state_dict(), Dir.TEMP()+'/checkpoint.pth')
+
+03/24/2024 03:08:29 PM INFO: Cell returned
+03/24/2024 03:08:29 PM INFO: Running cell:
+print(DEVICE)
+print('start!')
+train(dataloader, criterion, optimizer, EPOCHS)
+print('succsessfully done!')
+
+03/24/2024 05:15:39 PM INFO: Cell returned
+03/24/2024 05:15:39 PM INFO: Running cell:
+fig,ax = plt.subplots()
+ax.plot(EPOCH_PLOT,LOSS_PLOT)
+# plt.show() # jupyter不show也显示图片
+fig.savefig(f'{Dir.models()}/lossfig_{name}.png', dpi = 300)
+
+LOSS_DATA = np.stack((np.array(EPOCH_PLOT),np.array(LOSS_PLOT)),axis=0)
+np.save(f'{Dir.models()}/lossdata_{name}.npy',LOSS_DATA)
+
+torch.save(vae.state_dict(), f'{Dir.models()}/model_{name}.pth')
+
+03/24/2024 05:15:40 PM INFO: Cell returned
+03/24/2024 05:15:40 PM INFO: Shutdown kernel

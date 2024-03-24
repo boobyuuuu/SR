@@ -1,6 +1,5 @@
 import torch
 import torch.nn as nn
-import numpy as np
 from torchvision.transforms.functional import to_pil_image
 from torchvision.transforms.functional import to_tensor
 from function.myssim import ssim_function
@@ -21,16 +20,23 @@ def batch_psnr(img1, img2, max_val=255.0):
     return torch.mean(psnr)
 
 class Custom_criterion(nn.Module):
-    def __init__(self, mse_weight=1.0, ssim_weight=1.0, psnr_weight=1.0):
+    def __init__(self):
         super(Custom_criterion, self).__init__()
-        self.mse_weight = mse_weight
-        self.ssim_weight = ssim_weight
-        self.psnr_weight = psnr_weight
+        self.mse_weight = 0.7
+        self.ssim_weight = 0.3
+        self.psnr_weight = 0
+        self.l1_weight = 0.5
 
     def forward(self, output, target):
         mse_loss = nn.MSELoss()(output, target)
         ssim_loss = 1 - batch_ssim(output, target) # 取1-，因为越接近1越好
-        psnr_loss = -batch_psnr(output, target)  # 取相反数，因为 PSNR 越大越好
+        #psnr_loss = -batch_psnr(output, target)  # 取相反数，因为 PSNR 越大越好
+        #l1_loss = nn.L1Loss()(output, target)
+        mse = mse_loss * self.mse_weight
+        ssim = ssim_loss * self.ssim_weight
+        #psnr = psnr_loss * self.psnr_weight
+        #l1 = l1_loss * self.l1_weight
+        return mse + ssim
         return self.mse_weight * mse_loss + self.ssim_weight * ssim_loss
         return self.mse_weight * mse_loss + self.ssim_weight * ssim_loss + self.psnr_weight * psnr_loss
 
