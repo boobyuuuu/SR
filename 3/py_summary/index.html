@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../3_2/">
+        <link rel="prev" href="../3_4/">
       
       
-        <link rel="next" href="../3_4/">
+        <link rel="next" href="../../4/4_1/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>3.3 复现THU-DL-SR记录(outdated) - SR NJU</title>
+        <title>3.5 python操作笔记 - SR NJU</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#thu-dl-sroutdated" class="md-skip">
+        <a href="#python" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              3.3 复现THU-DL-SR记录(outdated)
+              3.5 python操作笔记
             
           </span>
         </div>
@@ -476,30 +476,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    3.3 复现THU-DL-SR记录(outdated)
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../3_3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -508,53 +488,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#cuda" class="md-nav__link">
-    <span class="md-ellipsis">
-      CUDA
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      虚拟环境
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      包：
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -585,10 +518,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../py_summary/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    3.5 python操作笔记
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -597,6 +550,35 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 python 环境同步
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -741,27 +723,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cuda" class="md-nav__link">
+  <a href="#1-python" class="md-nav__link">
     <span class="md-ellipsis">
-      CUDA
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      虚拟环境
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      包：
+      1 python 环境同步
     </span>
   </a>
   
@@ -782,66 +746,14 @@
                   
 
 
-<h1 id="thu-dl-sroutdated">复现THU-DL-SR记录(Outdated)</h1>
-<p>Python</p>
-<p>我们的系统为Ubuntu 20.04.6 LTS，自带Python3.8</p>
-<p>使用指令安装Python3.6（可GPT）</p>
-<p>配置Python优先级如下图</p>
-<p><img alt="image" src="../3.3.1.png" />
-<em>image 2.2.1</em></p>
-<h2 id="cuda">CUDA</h2>
-<p>使用以下指令安装CUDA 自动选择的版本是V10.1.243</p>
-<pre><code>// sudo apt install nvidia-cuda-toolkit
+<h1 id="python">python 操作笔记</h1>
+<h2 id="1-python">1 python 环境同步</h2>
+<p>每个人都是在自己的账户中操作，每个人都有自己的环境配置。要运行别人的程序，首先进行环境同步</p>
+<p><strong>列出所有环境于requirements.txt：</strong> </p>
+<pre><code>pip freeze &gt; requirements.txt
 </code></pre>
-<h2 id="_1">虚拟环境</h2>
-<p>在以下位置建立虚拟环境</p>
-<pre><code>/home/ylin/DL-SR
-</code></pre>
-<p>建立虚拟环境的指令</p>
-<pre><code>// sudo python3 -m venv new_venv
-（注意必须要写3）
-</code></pre>
-<p>Linux下启动虚拟环境方法：在以上目录执行以下指令</p>
-<pre><code>// source ./test_env/bin/activate
-</code></pre>
-<h2 id="_2">包：</h2>
-<p>requirements里面提供的包有问题，暂时现在本地推理</p>
-<p><strong>清华包需要做出的一些修改</strong></p>
-<p>修改1：Keras的import：需要将 from keras.layer.advanced_activations import ...改为from keras.layer</p>
-<p>修改2：skimage的import：做以下修改</p>
-<pre><code>from skimage.metrics import structural_similarity as compare_ssim
-from skimage.metrics import peak_signal_noise_ratio as compare_psnr
-from skimage.metrics import mean_squared_error as compare_mse
-from skimage.metrics import normalized_root_mse as compare_nrmse
-替换原有的
-#from skimage.measure import compare_mse, compare_nrmse, compare_psnr, compare_ssim
-</code></pre>
-<p>修改3：</p>
-<pre><code>#gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=gpu_memory_fraction)
-#tf.Session(config=tf.ConfigProto(gpu_options=gpu_options))
-gpu_options不需要了，直接注释掉
-</code></pre>
-<p>修改4：</p>
-<p>pridict.py文件里的优化器重新定义如下</p>
-<pre><code>optimizer = tf.keras.optimizers.legacy.Adam(learning_rate=1e-5, decay=0.5)
-</code></pre>
-<p>修改5：</p>
-<p>common.py文件里作以下修改</p>
-<pre><code>tf.ert
-改为
-tf.math.erf
-
-tf.fft2d
-改为
-tf.signal.fft2d
-
-tf.image.resize_images(output, (size_psc, size_psc), 0)
-改为
-tf.image.resize(output, (size_psc, size_psc), method='bilinear')
-
-tf.depth_to_space
-改为
-tf.nn.depth_to_space
+<p><strong>安装requirements.txt的所有环境：</strong></p>
+<pre><code>pip install -r requirements.txt
 </code></pre>
 
 
