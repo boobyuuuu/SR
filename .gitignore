@@ -1,8 +1,0 @@
-/datasets
-/outputs
-/.ipynb_checkpoints
-/codes/__pycache__
-/codes/.ipynb_checkpoints
-/codes/function/.ipynb_checkpoints
-/codes/function/__pycache__
-4purge.zip
