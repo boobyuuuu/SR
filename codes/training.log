@@ -1,0 +1,15 @@
+Epoch [6/1000], Average Loss: 0.004096, Current_LR:0.00049997
+Epoch [1/1000], Average Loss: 0.059136, Current_LR:0.00050000
+Epoch [7/1000], Average Loss: 0.004037, Current_LR:0.00049996
+Epoch [2/1000], Average Loss: 0.007408, Current_LR:0.00050000
+Epoch [8/1000], Average Loss: 0.004202, Current_LR:0.00049994
+Epoch [3/1000], Average Loss: 0.005087, Current_LR:0.00050000
+Epoch [9/1000], Average Loss: 0.004198, Current_LR:0.00049992
+Epoch [4/1000], Average Loss: 0.004160, Current_LR:0.00049999
+Epoch [10/1000], Average Loss: 0.004169, Current_LR:0.00049990
+Epoch [5/1000], Average Loss: 0.004538, Current_LR:0.00049998
+Epoch [11/1000], Average Loss: 0.003838, Current_LR:0.00049988
+Epoch [6/1000], Average Loss: 0.004081, Current_LR:0.00049997
+Epoch [12/1000], Average Loss: 0.003719, Current_LR:0.00049985
+Epoch [7/1000], Average Loss: 0.004046, Current_LR:0.00049996
+Epoch [8/1000], Average Loss: 0.004209, Current_LR:0.00049994
