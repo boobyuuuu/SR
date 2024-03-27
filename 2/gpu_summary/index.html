@@ -428,6 +428,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 查看后台控制台命令
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -731,6 +740,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 查看后台控制台命令
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -762,6 +780,24 @@ sudo -i
 
 #退出root管理员身份：
 exit
+</code></pre>
+<h2 id="2">2 查看后台控制台命令</h2>
+<p>后台运行：</p>
+<pre><code>nohup runipy ./codes/Train.ipynb 2&gt;&amp;1 &amp;
+</code></pre>
+<p>查看后台、查看指定后台、停止后台</p>
+<p>注：ps aux 中 Time 的单位是小时（ 7:23 表示 7h23min）</p>
+<pre><code># 查看所有后台
+ps aux 
+
+# 查看指定用户后台
+ps aux | grep username
+
+# 查看 runipy 字符串后台
+ps aux | grep runipy
+
+# 停止某个后台
+kill PID
 </code></pre>
 
 
