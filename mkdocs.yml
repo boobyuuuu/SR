@@ -5,6 +5,7 @@ nav:
   - Index: index.md
   - 一、关于mkdocs: 
     - 1.1 mkdocs的使用和书写: 1/1_1.md
+    - 1.2 Git 与 Github 操作: 1/1_2.md
   - 二、服务器技术文档:
     - 2.1 服务器基本信息: 2/2_1.md
     - 2.2 服务器环境信息: 2/2_2.md
