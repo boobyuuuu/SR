@@ -27,3 +27,33 @@ sudo -i
 exit
 ```
 
+## 2 查看后台控制台命令
+
+后台运行：
+
+```
+nohup runipy ./codes/Train.ipynb 2>&1 &
+```
+
+查看后台、查看指定后台、停止后台
+
+注：ps aux 中 Time 的单位是小时（ 7:23 表示 7h23min）
+
+```
+# 查看所有后台
+ps aux 
+
+# 查看指定用户后台
+ps aux | grep username
+
+# 查看 runipy 字符串后台
+ps aux | grep runipy
+
+# 停止某个后台
+kill PID
+```
+
+
+
+
+
