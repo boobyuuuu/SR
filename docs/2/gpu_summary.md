@@ -53,7 +53,24 @@ ps aux | grep runipy
 kill PID
 ```
 
+## 3 账户相关
 
+```
+# 查看服务器有哪些账户
+getent passwd
+
+# 查看当前账户是否具有root权限
+sudo -l
+
+# 查看某用户的所有权限
+groups username
+
+# 创建账户
+sudo adduser newuser
+
+# 给某用户sudo权限
+sudo adduser username sudo
+```
 
 
 
