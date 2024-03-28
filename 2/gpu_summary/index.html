@@ -479,6 +479,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 账户相关
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -770,6 +779,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 账户相关
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -819,6 +837,22 @@ ps aux | grep runipy
 
 # 停止某个后台
 kill PID
+</code></pre>
+<h2 id="3">3 账户相关</h2>
+<pre><code># 查看服务器有哪些账户
+getent passwd
+
+# 查看当前账户是否具有root权限
+sudo -l
+
+# 查看某用户的所有权限
+groups username
+
+# 创建账户
+sudo adduser newuser
+
+# 给某用户sudo权限
+sudo adduser username sudo
 </code></pre>
 
 
