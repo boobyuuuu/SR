@@ -1,6 +1,6 @@
 site_name: SR NJU
-theme:
-  name: 'material'
+theme: 
+  name: readthedocs
 nav:
   - Index: index.md
   - 一、mkdocs & Git: 

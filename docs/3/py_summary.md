@@ -14,3 +14,30 @@ pip freeze > requirements.txt
 ```
 pip install -r requirements.txt
 ```
+
+## 2 jupyter notebook 无法连接的问题
+
+运行`jupyter notebook`后，点开链接，浏览器显示:
+
+```
+127.0.0.1 refused to connect.
+```
+
+这是因为对jupyter的配置有问题，远程连接失败。解决方法：
+
+1.打开jupyter配置文件
+
+```
+vim ~/.jupyter/jupyter_notebook_config.py
+```
+
+2.将以下复制进去
+
+```
+c = get_config()
+c.ServerApp.allow_remote_access = True
+c.ServerApp.allow_root = True
+c.ServerApp.ip = '210.28.140.133' #这个写服务器ip
+```
+
+然后点开包含ip的那个链接，能成功连接。
