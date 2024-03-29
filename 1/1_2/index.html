@@ -49,11 +49,13 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">1.2 Git 与 Github 操作</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#_1">常规操作</a>
+    <li class="toctree-l2"><a class="reference internal" href="#https">初始上传（默认HTTPS上传）</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#_2">如果对自己的上传的注释不满意，想要修改上次的注释</a>
+    <li class="toctree-l2"><a class="reference internal" href="#git-ssh-gpu">Git 的 SSH 上传（gpu建议使用）</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#_3">如果想要回溯至之前某一次上传的状态</a>
+    <li class="toctree-l2"><a class="reference internal" href="#_1">如果对自己的上传的注释不满意，想要修改上次的注释</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_2">如果想要回溯至之前某一次上传的状态</a>
     </li>
     </ul>
                   </li>
@@ -116,12 +118,46 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="git-github">Git 与 Github 操作</h1>
-<h2 id="_1">常规操作</h2>
-<pre><code>git add . #上传所有文件，这样注释也是对所有进行注释
+<h2 id="https">初始上传（默认HTTPS上传）</h2>
+<p>1 本地上传缓存</p>
+<pre><code>git init
+git add . #上传所有文件，这样注释也是对所有进行注释
 git commit -m &quot;注释&quot;
-git push
 </code></pre>
-<h2 id="_2">如果对自己的上传的注释不满意，想要修改上次的注释</h2>
+<p>2 与远程仓库关联</p>
+<pre><code>git remote add connect_name &lt;GitHub 仓库地址&gt;
+
+</code></pre>
+<p>查看已经有的connect name：</p>
+<pre><code>git remote -v
+</code></pre>
+<p>3 建立自己的分支</p>
+<pre><code>git checkout -b your_branch_name
+</code></pre>
+<p>4 将<code>your_branch_name</code>分支上传到远程仓库<code>connect_name</code>，并且在并在远程仓库中创建一个名为<code>your_branch_name</code>的分支。</p>
+<pre><code>git push connect_name your_branch_name
+</code></pre>
+<h2 id="git-ssh-gpu">Git 的 SSH 上传（gpu建议使用）</h2>
+<p>1 在本地生成一个SSH</p>
+<pre><code>ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot; # 将 your_email@example.com 替换为在 GitHub 上注册的电子邮件地址。
+</code></pre>
+<p>一直回车就行</p>
+<p>2 查看公钥</p>
+<pre><code>cat ~/.ssh/id_rsa.pub
+</code></pre>
+<p>3 复制到Github仓库中的相应位置</p>
+<p><img alt="alt text" src="../1.2.1.png" /></p>
+<p>4 检查SSH连接成功</p>
+<pre><code>ssh -T git@github.com
+</code></pre>
+<p>输出以下则连接成功：</p>
+<pre><code>Hi boobyuuuu! You've successfully authenticated, but GitHub does not provide shell access.
+</code></pre>
+<p>5 将<code>connect_name</code>改为SSH连接</p>
+<pre><code>git remote set-url connect_name git@github.com:boobyuuuu/SR.git
+</code></pre>
+<p>6 正常上传</p>
+<h2 id="_1">如果对自己的上传的注释不满意，想要修改上次的注释</h2>
 <pre><code>git commit --amend #会打开一个vim文件
 </code></pre>
 <p>附带vim操作介绍：</p>
@@ -131,7 +167,7 @@ i
 Esc : q #直接退出
 Esc : wq #保存后退出
 </code></pre>
-<h2 id="_3">如果想要回溯至之前某一次上传的状态</h2>
+<h2 id="_2">如果想要回溯至之前某一次上传的状态</h2>
 <p>查看之前push记录</p>
 <pre><code>git reflog
 </code></pre>
