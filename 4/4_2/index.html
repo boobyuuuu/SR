@@ -681,6 +681,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      补充：实验效果对比标准
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       2 改进方向
@@ -696,6 +705,21 @@
       2.1 从复杂度
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="2.1 从复杂度">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      方向1 单独增加更多的卷积层
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -795,6 +819,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      补充：实验效果对比标准
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       2 改进方向
@@ -810,6 +843,21 @@
       2.1 从复杂度
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="2.1 从复杂度">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      方向1 单独增加更多的卷积层
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -860,9 +908,26 @@
 <li>VAE: 结合E和D，加入随机噪声进入平均. 在Forward中：首先将输入图像编码为潜在空间分布参数（均值和对数方差），然后使用重新参数化技巧从该分布中提取样本，最后将该样本解码回原始图像空间。</li>
 </ul>
 <p>输出: 重建的图像，以及潜在空间分布的平均值和对数方差。</p>
+<h2 id="_1">补充：实验效果对比标准</h2>
+<p>采用 {} 5张训练集 {} 5张测试集进行肉眼判断</p>
+<p>有没有定量判断标准？ - SSIM</p>
 <h2 id="2">2 改进方向</h2>
 <h3 id="21">2.1 从复杂度</h3>
-<p>实验2_1 ：单独增加更多的卷积层</p>
+<h4 id="1_1">方向1 单独增加更多的卷积层</h4>
+<ul>
+<li>实验2_1 ：卷积层增加为4层</li>
+</ul>
+<p>实验结果：</p>
+<p><img alt="EXP_2_1 实验结果" src="../EXP_2_1.png" />
+<center><em>EXP_2_1 实验结果</em></center></p>
+<ul>
+<li>
+<p>实验2_2 ：卷积层增加为5层</p>
+</li>
+<li>
+<p>实验2_3 ：卷积层增加为6层</p>
+</li>
+</ul>
 <h3 id="22">2.2 从过拟合</h3>
 <h3 id="23">2.3 从神经网络多样性</h3>
 <p>引入残差块</p>
