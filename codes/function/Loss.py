@@ -22,10 +22,10 @@ def batch_psnr(img1, img2, max_val=255.0):
 class Custom_criterion(nn.Module):
     def __init__(self):
         super(Custom_criterion, self).__init__()
-        self.mse_weight = 0.7
-        self.ssim_weight = 0.3
+        self.mse_weight = 0.6
+        self.ssim_weight = 0.4
         self.psnr_weight = 0
-        self.l1_weight = 0.5
+        self.l1_weight = 0
 
     def forward(self, output, target):
         mse_loss = nn.MSELoss()(output, target)
