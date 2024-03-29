@@ -1,29 +1,29 @@
-# 主要import
+# 这个文件定义了train函数
 import torch; torch.manual_seed(0)
 import numpy as np
 import matplotlib.pyplot as plt
 import torch.nn as nn
-# 模块import
-from modules.parameter_train import EPOCHS, CUT_EPOCH, BATCH_SIZE, LATENTDIM, LR_MAX, LR_MIN
-from utils.path_config import folder
-from utils.dataset_and_dataloader import dataloader # 加载数据集
+
 from utils.VAE import VAE
+from utils.path_config import folder
 from utils.loss import Custom_criterion1
 import functions.simple_functions as simple_functions
+from utils.dataset_and_dataloader import dataloader
+from modules.parameter_train import EPOCHS, CUT_EPOCH, BATCH_SIZE, LATENTDIM, LR_MAX, LR_MIN
 
-simple_functions.clearlog()
 DEVICE = 'cuda'
-LOSS_PLOT = []
-EPOCH_PLOT = []
 
 name = f'{EPOCHS}epo_{BATCH_SIZE}bth_{LATENTDIM}latn'
 vae = VAE(LATENTDIM).to(DEVICE)
 vae = nn.DataParallel(vae) #将 VAE 包装成一个并行化模型，以便在多个 GPU 上并行地进行训练
-simple_functions.log(f'{name}')
 criterion1 = nn.MSELoss()
 criterion2 = Custom_criterion1().cuda()
 
 def train():
+    simple_functions.clearlog()
+    simple_functions.log(f'{name}')
+    LOSS_PLOT = []
+    EPOCH_PLOT = []
     for current_epoch in range(1, EPOCHS+1):
         vae.train() # 切换成训练模式
         epoch_loss = 0.0

@@ -1,4 +1,5 @@
-# 这个文件用来对训练出来的模型进行初步判别
+# 这个文件用来启动评估
+# 评估的文件再outputs/run_train里
 from modules.application import application
 
 BATCH_SIZE = 128

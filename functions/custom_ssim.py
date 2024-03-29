@@ -1,4 +1,4 @@
-# 这个文件编写了一个simple的ssim损失函数
+# 这个文件定义了一个计算两张图片ssim的函数
 import numpy as np
 from scipy.signal import convolve2d
 
