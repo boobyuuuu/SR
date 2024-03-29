@@ -1,5 +1,6 @@
 /datasets
 /outputs
+/maunal_saves
 __pycache__/
 .ipynb_checkpoints/
-4purge.zip
+backup/

@@ -1,8 +1,9 @@
+# 这个文件制定了一个自定义的criterion
 import torch
 import torch.nn as nn
 from torchvision.transforms.functional import to_pil_image
-from torchvision.transforms.functional import to_tensor
-from function.myssim import ssim_function
+
+from functions.custom_ssim import custom_ssim
 
 # 结构相似度
 def batch_ssim(img1, img2):
@@ -10,7 +11,7 @@ def batch_ssim(img1, img2):
     for i in range(img1.size(0)):
         img1_pil = to_pil_image(img1[i])
         img2_pil = to_pil_image(img2[i])
-        ssim[i] = ssim_function(img1_pil, img2_pil, window_size = 16, data_range = 255.0, sigma = 1.5)
+        ssim[i] = custom_ssim(img1_pil, img2_pil, window_size = 16, data_range = 255.0, sigma = 1.5)
     return ssim.mean()
 
 # 峰值信噪比
@@ -19,9 +20,9 @@ def batch_psnr(img1, img2, max_val=255.0):
     psnr = 20 * torch.log10(torch.tensor(max_val) / torch.sqrt(torch.tensor(mse)))
     return torch.mean(psnr)
 
-class Custom_criterion(nn.Module):
+class Custom_criterion1(nn.Module):
     def __init__(self):
-        super(Custom_criterion, self).__init__()
+        super(Custom_criterion1, self).__init__()
         self.mse_weight = 0.6
         self.ssim_weight = 0.4
         self.psnr_weight = 0

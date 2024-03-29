@@ -1,11 +1,17 @@
+# 这个文件将datasets准备好了
 from PIL import Image
-from torch.utils.data import Dataset
+from torch.utils.data import Dataset, DataLoader
 from torchvision.transforms import transforms
-from function.Dir import Dir
 
-path_Confocal = Dir.Confocal() 
-path_STED = Dir.STED()
-path_STED_HC = Dir.STED_HC()
+
+from utils.path_config import folder
+from modules.train import BATCH_SIZE
+from modules.train import NUM_TO_LEARN
+from modules.train import MODE
+
+path_Confocal = folder.Confocal() 
+path_STED = folder.STED()
+path_STED_HC = folder.STED_HC()
 
 class ImageDataset(Dataset):
     def __init__(self, num_to_learn, mode):
@@ -27,3 +33,6 @@ class ImageDataset(Dataset):
         return len(self.data)
     def __getitem__(self, index):
         return self.data[index]
+    
+dataset = ImageDataset(NUM_TO_LEARN, MODE)
+dataloader = DataLoader(dataset, BATCH_SIZE, True)

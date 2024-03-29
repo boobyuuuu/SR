@@ -1,5 +1,5 @@
 # 如何后台训练
-nohup runipy ./codes/Train.ipynb 2>&1 &
+python run_train.py &
 # 如何修改模型
 修改VAE.py
 # GITHUB同步失败

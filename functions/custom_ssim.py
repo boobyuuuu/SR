@@ -1,8 +1,8 @@
+# 这个文件编写了一个simple的ssim损失函数
 import numpy as np
-from scipy.ndimage import gaussian_filter
 from scipy.signal import convolve2d
 
-def ssim_function(img1, img2, window_size=11, data_range=255.0, sigma=1.5):
+def custom_ssim(img1, img2, window_size=11, data_range=255.0, sigma=1.5):
     K1 = 0.01
     K2 = 0.03
 
