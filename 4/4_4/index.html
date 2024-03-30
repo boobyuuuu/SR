@@ -8,7 +8,7 @@
     <title>4.4 FC VAE - SR NJU</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
@@ -17,12 +17,11 @@
         var mkdocs_page_url = null;
       </script>
     
-    <script src="../../js/jquery-3.6.0.min.js" defer></script>
     <!--[if lt IE 9]>
       <script src="../../js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-      <script>hljs.initHighlightingOnLoad();</script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -34,7 +33,7 @@
           <a href="../.." class="icon icon-home"> SR NJU
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -85,11 +84,12 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">4.4 FC VAE</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#1-fc_vae">1 为什么要用FC_VAE</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#2-fc_vae">2 FC_VAE的网络结构</a>
-    </li>
     </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">五、实验</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../5/5_1/">5.1 参数修改</a>
                   </li>
               </ul>
       </div>
@@ -105,30 +105,24 @@
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-          <li>四、VAE 模型 &raquo;</li><li>4.4 FC VAE</li>
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">四、VAE 模型</li>
+      <li class="breadcrumb-item active">4.4 FC VAE</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
   <hr/>
 </div>
-
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="fc_vae">FC_VAE</h1>
-<h2 id="1-fc_vae">1 为什么要用FC_VAE</h2>
-<p>作为超分辨程序，图片的还原过程应该是定域的</p>
-<p>即输出图像某一点的像素值至于输入图像中相邻比较近的像素值有关</p>
-<p>卷积操作是定域的操作</p>
-<p>通过全部卷积可以获得定域的图像</p>
-<h2 id="2-fc_vae">2 FC_VAE的网络结构</h2>
-<p>输入图像</p>
+                <h1 id="cya">cya</h1>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../4_3/" class="btn btn-neutral float-left" title="4.3 LOSS函数与优化器"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../5/5_1/" class="btn btn-neutral float-right" title="5.1 参数修改">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -154,16 +148,19 @@
       <span><a href="../4_3/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
+      <span><a href="../../5/5_1/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
   </span>
 </div>
-    <script>var base_url = '../..';</script>
-    <script src="../../js/theme_extra.js" defer></script>
-    <script src="../../js/theme.js" defer></script>
-      <script src="../../search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
-        };
+        });
     </script>
 
 </body>
