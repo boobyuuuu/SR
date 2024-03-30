@@ -24,7 +24,7 @@ def application(MODE, NAME = None):
         model = f'{folder.output_train()}/model_{epochs}epo_{batch_size}bth_{latentdim}latn.pth'
     elif MODE == 'demo':
         target_folder = f'{folder.manual_saves()}/{NAME}'
-        model_name = [file for file in os.listdir(target_folder) if file.endswith(".pth")][0]
+        model_name = [file for file in os.listfolder(target_folder) if file.endswith(".pth")][0]
         model = f'{target_folder}/{model_name}'
         epochs = int(re.findall(r'\d+', model_name)[0])
         batch_size = int(re.findall(r'\d+', model_name)[1])
@@ -61,3 +61,22 @@ def application(MODE, NAME = None):
             img_SR.save(f'{folder.output_application()}/{i}_SR.png')
             img_STED.save(f'{folder.output_application()}/{i}_STED.png')
             img_STED_HC.save(f'{folder.output_application()}/{i}_STED_HC.png')
+
+    fig, axs = plt.subplots(4, 4, figsize=(20, 25))  # 创建一个5x4的子图网格
+    r = 0
+    for i in train_list + test_list:
+        img_Confocal = Image.open(f"{folder.Confocal()}/{i}_Confocal.png")
+        img_SR = reconstrust(img_Confocal, vae, ITERATION)
+        img_STED = Image.open(f"{folder.STED()}/{i}_STED.png")
+        img_STED_HC = Image.open(f"{folder.STED_HC()}/{i}_STED_HC.png")
+        axs[r, 0].imshow(img_Confocal, cmap='hot')
+        axs[r, 0].set_title('Confocal')
+        axs[r, 1].imshow(img_SR, cmap='hot')
+        axs[r, 1].set_title('Super-resolution')
+        axs[r, 2].imshow(img_STED, cmap='hot')
+        axs[r, 2].set_title('STED')
+        axs[r, 3].imshow(img_STED_HC, cmap='hot')
+        axs[r, 3].set_title('STED_HC')
+        r += 1
+    plt.tight_layout()  # 调整子图之间的间距
+    plt.savefig(f'{folder.output_application()}/all.png')
