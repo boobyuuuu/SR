@@ -85,6 +85,10 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">4.4 FC VAE</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-fc_vae">1 为什么要用FC_VAE</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-fc_vae">2 FC_VAE的网络结构</a>
+    </li>
     </ul>
                   </li>
               </ul>
@@ -112,7 +116,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="cya">cya</h1>
+                <h1 id="fc_vae">FC_VAE</h1>
+<h2 id="1-fc_vae">1 为什么要用FC_VAE</h2>
+<p>作为超分辨程序，图片的还原过程应该是定域的</p>
+<p>即输出图像某一点的像素值至于输入图像中相邻比较近的像素值有关</p>
+<p>卷积操作是定域的操作</p>
+<p>通过全部卷积可以获得定域的图像</p>
+<h2 id="2-fc_vae">2 FC_VAE的网络结构</h2>
+<p>输入图像</p>
               
             </div>
           </div><footer>
