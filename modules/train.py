@@ -1,27 +1,27 @@
 # 这个文件定义了train函数
-import torch; torch.manual_seed(0)
 import numpy as np
-import matplotlib.pyplot as plt
 import torch.nn as nn
+import matplotlib.pyplot as plt
+import torch; torch.manual_seed(0)
 
 from utils.VAE import VAE
 from utils.path_config import folder
 from utils.loss import Custom_criterion1
-import functions.simple_functions as simple_functions
 from utils.dataset_and_dataloader import dataloader
-from modules.parameter_train import EPOCHS, CUT_EPOCH, BATCH_SIZE, LATENTDIM, LR_MAX, LR_MIN
+import functions.simple_functions as simple_functions
+from train_parameter import EPOCHS, CUT_EPOCH, BATCH_SIZE, LATENTDIM, LR_MAX, LR_MIN
 
 DEVICE = 'cuda'
 
-name = f'{EPOCHS}epo_{BATCH_SIZE}bth_{LATENTDIM}latn'
 vae = VAE(LATENTDIM).to(DEVICE)
 vae = nn.DataParallel(vae) #将 VAE 包装成一个并行化模型，以便在多个 GPU 上并行地进行训练
 criterion1 = nn.MSELoss()
 criterion2 = Custom_criterion1().cuda()
+name = f'{EPOCHS}epo_{BATCH_SIZE}bth_{LATENTDIM}latn'
 
 def train():
     simple_functions.clearlog()
-    simple_functions.log(f'{name}')
+    simple_functions.log(f'正在训练模型：{name}')
     LOSS_PLOT = []
     EPOCH_PLOT = []
     for current_epoch in range(1, EPOCHS+1):
@@ -46,7 +46,7 @@ def train():
             optimizer.step()
             epoch_loss += loss.item()
         mean_epoch_loss = epoch_loss / len(dataloader) # 每个EPOCH的loss，全部数据集的平均
-        print(f"Epoch [{current_epoch}/{EPOCHS}], Average Loss: {mean_epoch_loss:.6f}, Current_LR:{current_lr:.8f}")
+        #print(f"Epoch [{current_epoch}/{EPOCHS}], Average Loss: {mean_epoch_loss:.6f}, Current_LR:{current_lr:.8f}")
         simple_functions.log(f"Epoch [{current_epoch}/{EPOCHS}], Average Loss: {mean_epoch_loss:.6f}, Current_LR:{current_lr:.8f}")
 
         LOSS_PLOT.append(epoch_loss)
@@ -54,10 +54,10 @@ def train():
     fig,ax = plt.subplots()
     ax.plot(EPOCH_PLOT,LOSS_PLOT)
     ## 保存loss图片
-    fig.savefig(f'{folder.run_train()}/lossfig_{name}.png', dpi = 300)
+    fig.savefig(f'{folder.output_train()}/lossfig_{name}.png', dpi = 300)
     ## 保存loss数据
     LOSS_DATA = np.stack((np.array(EPOCH_PLOT),np.array(LOSS_PLOT)),axis=0)
-    np.save(f'{folder.run_train()}/lossdata_{name}.npy',LOSS_DATA)
+    np.save(f'{folder.output_train()}/lossdata_{name}.npy',LOSS_DATA)
     ## 保存模型
-    torch.save(vae.state_dict(), f'{folder.run_train()}/model_{name}.pth')
+    torch.save(vae.state_dict(), f'{folder.output_train()}/model_{name}.pth')
     simple_functions.log(f'训练完成')

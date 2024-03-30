@@ -1,5 +1,5 @@
 # 这个文件定义了自定义的评估标准
-import torch
+import torch; torch.manual_seed(0)
 import torch.nn as nn
 from torchvision.transforms.functional import to_pil_image
 

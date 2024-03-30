@@ -4,9 +4,7 @@ from torch.utils.data import Dataset, DataLoader
 from torchvision.transforms import transforms
 
 from utils.path_config import folder
-from modules.parameter_train import BATCH_SIZE
-from modules.parameter_train import NUM_TO_LEARN
-from modules.parameter_train import MODE
+from train_parameter import BATCH_SIZE, NUM_TO_LEARN, MODE
 
 path_Confocal = folder.Confocal() 
 path_STED = folder.STED()

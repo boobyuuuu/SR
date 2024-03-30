@@ -14,9 +14,14 @@ class folder:
     def STED_HC(cls):
         return f'{root}/datasets/STED_HC/'
     @classmethod
-    def run_train(cls):
-        return f'{root}/outputs/run_train/'
+    def output_train(cls):
+        return f'{root}/outputs/train_run/'
     @classmethod
-    def run_application(cls):
-        return f'{root}/outputs/run_application/'
-
+    def output_application(cls):
+        return f'{root}/outputs/application_run/'
+    @classmethod
+    def output_demo(cls):
+        return f'{root}/outputs/demo_run/'
+    @classmethod
+    def manual_saves(cls):
+        return f'{root}/manual_saves/'
