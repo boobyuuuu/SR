@@ -131,12 +131,19 @@ git commit -m &quot;注释&quot;
 <p>查看已经有的connect name：</p>
 <pre><code>git remote -v
 </code></pre>
-<p>3 建立自己的分支</p>
-<pre><code>git checkout -b your_branch_name
+<p>3 建立本地的分支</p>
+<pre><code>git branch &lt;branch_name&gt; #创建一个本地分支
+git checkout -b &lt;branch_name&gt; &lt;connect_name&gt;/&lt;remote_branch_name&gt; #创建一个与远程关联的本地分支
+git checkout &lt;branch_name&gt; #切换到 branch_name
+git branch #查看所有本地分支
+git branch -r #查看当前远程分支
 </code></pre>
-<p>4 将<code>your_branch_name</code>分支上传到远程仓库<code>connect_name</code>，并且在并在远程仓库中创建一个名为<code>your_branch_name</code>的分支。</p>
-<pre><code>git push connect_name your_branch_name
+<p>4 上传</p>
+<pre><code>git push &lt;connect_name&gt; &lt;your_branch_name&gt; 将`your_branch_name`分支上传到远程仓库`connect_name`，并且在并在远程仓库中创建一个名为`your_branch_name`的远程分支&lt;remote_name&gt;=&lt;your_branch_name&gt;
+
+git push -u &lt;remote_name&gt; &lt;branch_name&gt; #将当前分支的更改推送到远程仓库，并将本地分支与远程分支进行关联
 </code></pre>
+<p><em>注：分支操作比较复杂，一般不会用到</em></p>
 <h2 id="git-ssh-gpu">Git 的 SSH 上传（gpu建议使用）</h2>
 <p>1 在本地生成一个SSH</p>
 <pre><code>ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot; # 将 your_email@example.com 替换为在 GitHub 上注册的电子邮件地址。
