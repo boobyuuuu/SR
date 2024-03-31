@@ -49,6 +49,8 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">1.2 Git 与 Github 操作</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#httpsssh">HTTPS和SSH原理解释</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#https">初始上传（默认HTTPS上传）</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#git-ssh-gpu">Git 的 SSH 上传（gpu建议使用）</a>
@@ -125,6 +127,16 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="git-github">Git 与 Github 操作</h1>
+<h2 id="httpsssh">HTTPS和SSH原理解释</h2>
+<p>可以理解为设备先代码先推送到你的Github账户，Github再判断你是否有权限将代码推送到仓库。</p>
+<p>HTTPS和SSH就是建立“上传代码的机器”和“Github账户”之间联系的两个协议。就是你登录Github的两种输密码的方式。</p>
+<p>使用HTTPS会让你手动输入一次密码，后面不用再输了；使用SSH会让你一次性生成密钥，放入你的个人文件，后面也不用再输了。</p>
+<p>HTTPS有时候会被墙（尤其是服务器环境），SSH网络非常好。</p>
+<p><strong>一台机器可以有多个SSH密钥组！一个账号也可以有多个SSH公钥！</strong></p>
+<p>例：</p>
+<p>每个人将服务器的文件备份到SR这个项目（在lzh的github下）中，均使用的是lzh的id_rsa.pub文件。</p>
+<p>每个人将服务器的文件备份到VAE256这个项目（在ly的github下）中，均使用的是ylin_rsa.pub文件</p>
+<p>ly将自己电脑上的文件备份到VAE256这个项目（在ly的github下），使用的是自己电脑上的另一个公钥，比如也叫ylin_rsa.pub文件（内容一定是不一样的）。</p>
 <h2 id="https">初始上传（默认HTTPS上传）</h2>
 <p>1 本地上传缓存</p>
 <pre><code>git init
@@ -153,9 +165,13 @@ git push -u &lt;remote_name&gt; &lt;branch_name&gt; #将当前分支的更改推
 <p><em>注：分支操作比较复杂，一般不会用到</em></p>
 <h2 id="git-ssh-gpu">Git 的 SSH 上传（gpu建议使用）</h2>
 <p>1 在本地生成一个SSH</p>
-<pre><code>ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot; # 将 your_email@example.com 替换为在 GitHub 上注册的电子邮件地址。
+<pre><code>$ ssh-keygen -t rsa -C '[邮箱]' -f ~/.ssh/[你的名字]_rsa
+连带方括号进行个人的修改
 </code></pre>
-<p>一直回车就行</p>
+<p>这里的邮箱没有任何用，只是用来分辨ssh公钥是谁的。</p>
+<blockquote>
+<p><strong><em>一台机器可以有多个SSH密钥组，一个账号也可以有多个SSH公钥。</em></strong></p>
+</blockquote>
 <p>2 查看公钥</p>
 <pre><code>cat ~/.ssh/id_rsa.pub
 </code></pre>
@@ -167,7 +183,7 @@ git push -u &lt;remote_name&gt; &lt;branch_name&gt; #将当前分支的更改推
 <p>输出以下则连接成功：</p>
 <pre><code>Hi boobyuuuu! You've successfully authenticated, but GitHub does not provide shell access.
 </code></pre>
-<p>5 将<code>connect_name</code>改为SSH连接</p>
+<p>5 将 <code>connect_name</code>改为SSH连接</p>
 <pre><code>git remote set-url connect_name git@github.com:boobyuuuu/SR.git
 </code></pre>
 <p>6 正常上传</p>

@@ -66,6 +66,8 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#-_1">网络-正常访问墙内网络：</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#-_2">网络-网络脚本备份</a>
+    </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#nvidia">NVIDIA相关</a>
@@ -157,6 +159,10 @@ cd /home/jzhang/bin
 nano login
 # Ctrl+W写入Ctrl+X关闭，运行脚本
 run ./login
+</code></pre>
+<h3 id="-_2">网络-网络脚本备份</h3>
+<pre><code>curl -X POST https://p.nju.edu.cn/api/portal/v1/login -H &quot;Content-type: application/json&quot; -d '{&quot;username&quot;:&quot;统一验证账号&quot;,&quot;password&quot;:&quot;统一验证密码&quot;}'
+
 </code></pre>
 <h2 id="nvidia">NVIDIA相关</h2>
 <p>主驱动版本：545</p>
