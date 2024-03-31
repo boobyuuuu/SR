@@ -1,5 +1,7 @@
 # 这个文件定义了几个目录
-root = f'/home/ylin1/SR/VAE256'
+import os
+cwd = os.getcwd()
+root = os.path.dirname(cwd)
 class folder:
     @classmethod
     def root(cls):
