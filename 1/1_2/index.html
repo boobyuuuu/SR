@@ -49,7 +49,7 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">1.2 Git 与 Github 操作</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#httpsssh">HTTPS和SSH原理解释</a>
+    <li class="toctree-l2"><a class="reference internal" href="#httpsssh">HTTPS和SSH原理简单解释</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#https">初始上传（默认HTTPS上传）</a>
     </li>
@@ -127,16 +127,17 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="git-github">Git 与 Github 操作</h1>
-<h2 id="httpsssh">HTTPS和SSH原理解释</h2>
-<p>可以理解为设备先代码先推送到你的Github账户，Github再判断你是否有权限将代码推送到仓库。</p>
-<p>HTTPS和SSH就是建立“上传代码的机器”和“Github账户”之间联系的两个协议。就是你登录Github的两种输密码的方式。</p>
-<p>使用HTTPS会让你手动输入一次密码，后面不用再输了；使用SSH会让你一次性生成密钥，放入你的个人文件，后面也不用再输了。</p>
-<p>HTTPS有时候会被墙（尤其是服务器环境），SSH网络非常好。</p>
-<p><strong>一台机器可以有多个SSH密钥组！一个账号也可以有多个SSH公钥！</strong></p>
+<h2 id="httpsssh">HTTPS和SSH原理简单解释</h2>
+<p>定义来说HTTPS和SSH是建立“上传代码的机器”和“Github账户”之间联系的两个协议。</p>
+<p>过程来说：都是 机器 → github账户 → github仓库</p>
+<p>方法来说：使用HTTPS会让你手动输入一次密码；使用SSH会让你一次性生成密钥，放入你的github profile。</p>
+<p>效果来说：HTTPS有时会被墙（SR服务器只有晚上可以用HTTPS），SSH没有这个问题。</p>
+<p><strong>一台机器可以有多个SSH密钥组！一个账号也可以设置多个SSH公钥。</strong></p>
+<p>一台机器连接到一个域名，只能通过切换ssh配置文件来改变使用的密钥。</p>
 <p>例：</p>
 <p>每个人将服务器的文件备份到SR这个项目（在lzh的github下）中，均使用的是lzh的id_rsa.pub文件。</p>
-<p>每个人将服务器的文件备份到VAE256这个项目（在ly的github下）中，均使用的是ylin_rsa.pub文件</p>
-<p>ly将自己电脑上的文件备份到VAE256这个项目（在ly的github下），使用的是自己电脑上的另一个公钥，比如也叫ylin_rsa.pub文件（内容一定是不一样的）。</p>
+<p>每个人将服务器的文件备份到VAE256这个private项目（在ly的github下）中，只有使用ylin_rsa.pub文件，才能有权限。</p>
+<p>ly将自己电脑上的文件备份到VAE256这个项目（在ly的github下），使用的是自己电脑上的另一个公钥，比如也叫ylin_rsa.pub文件（公钥的内容一定是不一样的）。</p>
 <h2 id="https">初始上传（默认HTTPS上传）</h2>
 <p>1 本地上传缓存</p>
 <pre><code>git init
@@ -204,6 +205,8 @@ Esc : wq #保存后退出
 <p>可以得到一系列的ID</p>
 <p>回溯到某一个ID</p>
 <pre><code>git reset --hard &lt;commit_id&gt;
+
+#不可撤销操作！可以使用--soft
 </code></pre>
               
             </div>

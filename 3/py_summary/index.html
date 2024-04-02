@@ -77,6 +77,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#2-jupyter-notebook">2 jupyter notebook 无法连接的问题</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-ipynb">3 后台运行ipynb文件</a>
+    </li>
     </ul>
                   </li>
               </ul>
@@ -123,14 +125,14 @@
                 <h1 id="python">python 问题与解决</h1>
 <h2 id="1-python">1 python 环境同步</h2>
 <p>每个人都是在自己的账户中操作，每个人都有自己的环境配置。要运行别人的程序，首先进行环境同步</p>
-<p><strong>列出所有环境于requirements.txt：</strong> </p>
+<p><strong>列出所有环境于requirements.txt：</strong></p>
 <pre><code>pip freeze &gt; requirements.txt
 </code></pre>
 <p><strong>安装requirements.txt的所有环境：</strong></p>
 <pre><code>pip install -r requirements.txt
 </code></pre>
 <h2 id="2-jupyter-notebook">2 jupyter notebook 无法连接的问题</h2>
-<p>运行<code>jupyter notebook</code>后，点开链接，浏览器显示:</p>
+<p>运行 <code>jupyter notebook</code>后，点开链接，浏览器显示:</p>
 <pre><code>127.0.0.1 refused to connect.
 </code></pre>
 <p>这是因为对jupyter的配置有问题，远程连接失败。解决方法：</p>
@@ -144,6 +146,8 @@ c.ServerApp.allow_root = True
 c.ServerApp.ip = '210.28.140.133' #这个写服务器ip
 </code></pre>
 <p>然后点开包含ip的那个链接，能成功连接。</p>
+<h2 id="3-ipynb">3 后台运行ipynb文件</h2>
+<p>nohup runipy your_notebook.ipynb 2&gt;&amp;1 &amp;</p>
               
             </div>
           </div><footer>
