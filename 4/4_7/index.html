@@ -89,6 +89,16 @@
                   <li class="toctree-l1"><a class="reference internal" href="../4_6/">4.6 modules模块</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">4.7 outputs模块</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_1">简介</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#application_run">application_run</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#demo_run">demo_run</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#train_run">train_run</a>
+    </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../4_8/">4.8 utils模块</a>
                   </li>
@@ -129,7 +139,26 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                
+                <h1 id="outputs">outputs模块</h1>
+<p>更新时间：2024年4月2日</p>
+<h2 id="_1">简介</h2>
+<p>outputs模块保存了由根目录下“*_run.py/ipynb”文件运行所产生的所有输出文件。</p>
+<h2 id="application_run">application_run</h2>
+<p>保存重建后的参考组图。目前使用了2张数据集2张测试集用来评估。</p>
+<p><strong>输出分组：</strong></p>
+<p>上述4张测试图像对应的Confocal、SR、STED、STED_HC图片共16张：无标注</p>
+<p>一张图像的四分辨1x4组图共4张：标注图像序号、来源、MSE_loss、SSIM_loss</p>
+<p>四张图像的四分辨4x4组图共1张：无标注</p>
+<p>共21张</p>
+<p><strong>保存时效性：</strong></p>
+<p>更换参数（也就是更换模型）后运行会覆盖之前的图片。</p>
+<h2 id="demo_run">demo_run</h2>
+<p>暂时未做输出。</p>
+<h2 id="train_run">train_run</h2>
+<p>保存训练输出的模型文件（*.pth）、loss数据（*.npy）、loss图像（*.png）。</p>
+<p>以EPOCH、BATCH_SIZE、LATENTDIM命名。</p>
+<p><strong>保存时效性：</strong></p>
+<p>对于同时满足3个参数相同两个模型，早先的模型会被后来的模型覆盖。（即使其他参数已经发生了变化）</p>
               
             </div>
           </div><footer>

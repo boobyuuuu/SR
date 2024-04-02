@@ -78,7 +78,9 @@
               <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">4.1 程序总架构</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#1">1 总架构</a>
+    <li class="toctree-l2"><a class="reference internal" href="#_2">程序设计原则</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_3">一些约定</a>
     </li>
     </ul>
                   </li>
@@ -133,8 +135,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="vae">VAE 程序结构</h1>
-<h2 id="1">1 总架构</h2>
+                <h1 id="_1">程序总结构</h1>
+<h2 id="_2">程序设计原则</h2>
+<ul>
+<li>程序设计遵循模块化原则。</li>
+<li>工作文件使用py文件编写，使用全小写+下划线命名法。</li>
+<li>展示文件使用ipynb文件编写。</li>
+</ul>
+<h2 id="_3">一些约定</h2>
+<p><code>__pycache__</code> 文件夹为python运行时生成的临时文件夹。同步时，所有目录下的此文件夹都会被忽略。</p>
+<p><code>backup</code>文件夹为手动备份的文件夹。同步时，根目录下的此文件夹会被忽略。</p>
+<p><code>*.nonsense</code> 文件为手动备注的信息文件。同步时，所有目录下的此文件都会被忽略。</p>
               
             </div>
           </div><footer>

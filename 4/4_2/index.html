@@ -79,6 +79,42 @@
                   <li class="toctree-l1"><a class="reference internal" href="../4_1/">4.1 程序总架构</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">4.2 根目录</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_2">结构组</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#gitignore">.gitignore</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#readmemd">Readme.md</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#updatesmd">UPDATES.md</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#train">train组</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#train_parameterpy">train_parameter.py</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#train_runpy">train_run.py</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#train_loglog">train_log.log</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#application">application组</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#application_parameterpy">application_parameter.py</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#application_runipynb">application_run.ipynb</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#demo">demo组</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#demo_runpy">demo_run.py</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../4_3/">4.3 datasets模块</a>
                   </li>
@@ -129,7 +165,34 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                
+                <h1 id="_1">根目录</h1>
+<p>更新时间：2024年4月3日</p>
+<h2 id="_2">结构组</h2>
+<h3 id="gitignore">.gitignore</h3>
+<p>保存了在git同步应该被忽略的文件特征。书写格式请自行搜索。</p>
+<p>已经忽略了所有数据集文件、输出文件、缓存文件、备份文件、备注文件。</p>
+<h3 id="readmemd">Readme.md</h3>
+<p>展示在Github项目首页的引言文件。</p>
+<h3 id="updatesmd">UPDATES.md</h3>
+<p>记录项目更新改动的文件。依照修改的重要性，更新分为三级等级。</p>
+<p>更新的全部内容写入UPDATES文件。Commit的备注只写特别重大的更新。</p>
+<h2 id="train">train组</h2>
+<h3 id="train_parameterpy">train_parameter.py</h3>
+<p>训练参数。包括NUM_TO_LEARN、EPOCHS、CUT_EPOCH、BATCH_SIZE、LATENTDIM、LR_MAX、LR_MIN、MODE。具体意义请打开文件查看。</p>
+<h3 id="train_runpy">train_run.py</h3>
+<p>一般使用以下代码进行后台训练。</p>
+<pre><code>python3 train_run.py &amp;
+</code></pre>
+<h3 id="train_loglog">train_log.log</h3>
+<p>记录后台训练进度。</p>
+<h2 id="application">application组</h2>
+<h3 id="application_parameterpy">application_parameter.py</h3>
+<p>重建参数。包括BATCH_SIZE、EPOCHS、LATENTDIM、DO_SAVE。具体意义请打开文件查看。</p>
+<h3 id="application_runipynb">application_run.ipynb</h3>
+<p>用于评估outputs中的普通模型。</p>
+<h2 id="demo">demo组</h2>
+<h3 id="demo_runpy">demo_run.py</h3>
+<p>用于展示maunal_saves中的典型模型。暂时未做输出。</p>
               
             </div>
           </div><footer>

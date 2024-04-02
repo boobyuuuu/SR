@@ -91,6 +91,20 @@
                   <li class="toctree-l1"><a class="reference internal" href="../4_7/">4.7 outputs模块</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">4.8 utils模块</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_1">简介</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dataset_and_dataloaderpy">dataset_and_dataloader.py</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#losspy">loss.py</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#path_configpy">path_config.py</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#reconstructpy">reconstruct.py</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#vaepy">VAE.py</a>
+    </li>
+    </ul>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">五、VAE技术文档</span></p>
@@ -129,7 +143,40 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                
+                <h1 id="utils">utils模块</h1>
+<p>更新时间：2024年4月3日</p>
+<h2 id="_1">简介</h2>
+<p>utils模块保存了“足以完成一个任务”的模块级代码。</p>
+<h2 id="dataset_and_dataloaderpy">dataset_and_dataloader.py</h2>
+<p>准备dataset和dataloader的模块。</p>
+<pre><code>模块级输入：类folder、BATCH_SIZE、NUM_TO_LEARN、MODE
+
+模块级输出：变量（类）dataloader
+</code></pre>
+<h2 id="losspy">loss.py</h2>
+<p>存储计算单对图片loss、多对图片loss、criterion的模块。</p>
+<pre><code>模块级输入：函数custom_ssim
+
+模块级输出：函数mse、函数ssim、类Custom_criterion1
+</code></pre>
+<h2 id="path_configpy">path_config.py</h2>
+<p>定义相对路径的模块。</p>
+<pre><code>模块级输出：类folder
+</code></pre>
+<h2 id="reconstructpy">reconstruct.py</h2>
+<p>使用vae重建单张图片的模块。</p>
+<pre><code>模块级输出：函数reconstruct
+
+函数级输入：img_LR、model、iteration（outdated）
+
+函数级输出：img_SR
+</code></pre>
+<h2 id="vaepy">VAE.py</h2>
+<p>保存VAE核心结构的模块。</p>
+<pre><code>模块级输入：变量latentdim
+
+模块级输出：变量（模型）VAE
+</code></pre>
               
             </div>
           </div><footer>

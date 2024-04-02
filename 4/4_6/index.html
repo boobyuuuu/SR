@@ -88,6 +88,22 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">4.6 modules模块</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#trainpy">train.py</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_1">模块级输入：</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_2">注意点：</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#applicationpy">application.py</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">模块级输入：</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">注意点：</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../4_7/">4.7 outputs模块</a>
@@ -131,27 +147,28 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="2-codestrainipynb-vae">2 codes/Train.ipynb VAE网络训练过程解析</h2>
-<p><strong>这是网络训练过程的程序</strong></p>
-<p>第0步：定义网络参数</p>
-<p>第一步：加载训练集</p>
-<p>第二步：初始化模型，定义LOSS函数与优化器</p>
+                <h1 id="modules">modules模块</h1>
+<p>更新时间：2024年4月3日</p>
+<h2 id="trainpy">train.py</h2>
+<p>定义训练过程的模块，最终以train函数输出。</p>
+<h3 id="_1">模块级输入：</h3>
+<p>类VAE、类folder、类Custom_criterion1、变量（类）dataloader、模块simple_functions、EPOCHS、CUT_EPOCH、BATCH_SIZE、LATENTDIM、LR_MAX、LR_MIN</p>
+<h3 id="_2">注意点：</h3>
 <ul>
-<li>建立一个空白的VAE模型</li>
-<li>定义LOSS函数</li>
-<li>定义优化器</li>
+<li>VAE平行装载，在两块GPU上并行训练。</li>
+<li>Learn_rate采用余弦退火法，输入为LR_MAX和LR_MIN。</li>
+<li>优化器使用AdaW</li>
+<li>criterion与loss函数一致，在CUT_EPOCH之前使用纯MSE，在CUT_EPOCH之后使用0.6*MSE+0.4*SSIM</li>
 </ul>
-<p>第三步：定义Train函数</p>
-<p>第四步：开始训练，输出可视化，保存训练log，保存训练后网络</p>
+<h2 id="applicationpy">application.py</h2>
+<p>定义训练过程的模块，最终以application函数输出。</p>
+<h3 id="_3">模块级输入：</h3>
+<p>类VAE、类folder、函数mse、函数ssim、函数reconstruct、BATCH_SIZE、EPOCHS、LATENTDIM、DO_SAVE</p>
+<h3 id="_4">注意点：</h3>
 <ul>
-<li>保存LOSS图片</li>
-<li>保存LOSS数据</li>
-<li>保存模型pth</li>
+<li>选用的图片分别为1500号和3000号、5500号和6000号，分别来自训练集和测试集。</li>
+<li>application做了parameter和demo两个模式，分别应用于application_run.ipynb和demo_run.ipynb上。</li>
 </ul>
-<h2 id="3-codesapplicationipynb">3 codes/Application.ipynb 训练结果展示规范</h2>
-<p>定义一个训练结果展示的规范</p>
-<p><strong>训练集还原结果</strong></p>
-<p><strong>测试集还原结果</strong></p>
               
             </div>
           </div><footer>
