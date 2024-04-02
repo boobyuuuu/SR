@@ -1,4 +1,6 @@
 # 这个文件展示了更新记录
+## version 1.1.4
+1、修改了Readme文件
 ## version 1.1.3
 1、Application函数增加定量显示
 2、修改了path的问题
