@@ -2,6 +2,24 @@
 
 此文档用来记录服务器操作过程遇到的 问题 与 解决方法
 
+## 0 配置网络
+
+1、主要网口："2: enp4s0f0"，打开就可以访问教育网。除lo网口（loop回环）外，网口均为自动获取ip地址。
+2、访问教育网外网方法：
+
+```
+# 进入root账户
+sudo -i
+# 切换到脚本目录
+cd /home/jzhang/bin
+# 以文本编辑器打开login文件（没有后缀名）
+nano login
+# 写入以下内容
+curl -X POST https://p.nju.edu.cn/api/portal/v1/login -H "Content-type: application/json" -d '{"username":"统一验证账号","password":"统一验证密码"}'
+# Ctrl+W写入Ctrl+X关闭，运行脚本
+run ./login
+```
+
 ## 1 权限问题：Permission denied
 
 跨账户操作时常遇到。在一个账户时无法打开另一个账户的文件：
@@ -22,14 +40,13 @@ sudo + 命令
 ```
 #进入root管理员身份：
 sudo -i
-
 #退出root管理员身份：
 exit
 ```
 
-## 2 查看后台控制台命令
+## 2 后台管理
 
-后台运行：
+后台运行ipynb文件：
 
 ```
 nohup runipy ./codes/Train.ipynb 2>&1 &
@@ -93,6 +110,7 @@ Jupyter command `jupyter-notebook` not found.
 ```
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 ```
+
 2.应用环境变量
 
 ```
@@ -101,7 +119,7 @@ source ~/.bashrc
 
 ## 5 介绍账户隐藏文件
 
-用`ls -a`查看所有文件：
+用 `ls -a`查看所有文件：
 
 ```
 .   .bash_history  .bashrc  .config             .ipython  .local    .python_history  .sudo_as_admin_successful
@@ -123,8 +141,3 @@ source ~/.bashrc
 - snap: 这个目录包含了通过 Snap 包管理器安装的应用程序。Snap 是一种打包和分发 Linux 应用程序的方法，它将应用程序和它们的依赖项捆绑在一起。
 - .python_history: 这个文件包含了用户在 Python shell 中执行的历史命令记录，类似于 .bash_history。
 - .sudo_as_admin_successful: 这个文件是 sudo 命令生成的，表示上次使用 sudo 命令时身份验证成功。
-
-
-
-
-

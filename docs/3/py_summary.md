@@ -16,23 +16,17 @@ pip freeze > requirements.txt
 pip install -r requirements.txt
 ```
 
-## 2 jupyter notebook 无法连接的问题
+## 2 jupyter notebook 初次安装后初始配置的问题
 
-运行 `jupyter notebook`后，点开链接，浏览器显示:
+在新账户安装完jupyter notebook后，必须先生成和修改配置文件。
 
-```
-127.0.0.1 refused to connect.
-```
-
-这是因为对jupyter的配置有问题，远程连接失败。解决方法：
-
-1.打开jupyter配置文件
+1.打开jupyter配置文件，没有就新建
 
 ```
 vim ~/.jupyter/jupyter_notebook_config.py
 ```
 
-2.将以下复制进去
+2.将以下复制进去，也可以搜索并取消原文的注释进行修改。
 
 ```
 c = get_config()
@@ -46,3 +40,7 @@ c.ServerApp.ip = '210.28.140.133' #这个写服务器ip
 ## 3 后台运行ipynb文件
 
 nohup runipy your_notebook.ipynb 2>&1 &
+
+## 4 后台运行py文件
+
+python3 *.py &
