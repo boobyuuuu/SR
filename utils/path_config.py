@@ -1,7 +1,7 @@
 # 这个文件定义了几个目录
 import os
-cwd = os.getcwd()
-root = os.path.dirname(cwd)
+root = os.getcwd()
+# 这就是到VAE256这一层
 class folder:
     @classmethod
     def root(cls):

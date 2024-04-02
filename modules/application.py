@@ -4,12 +4,14 @@ import re
 import os
 import torch.nn as nn
 from PIL import Image
+import numpy as np
 import matplotlib.pyplot as plt
 import torch; torch.manual_seed(0)
 
 from utils.VAE import VAE
 from utils.reconstruct import reconstrust
 from utils.path_config import folder
+from utils.loss import mse, ssim
 from application_parameter import BATCH_SIZE, EPOCHS, LATENTDIM, DO_SAVE
 
 DEVICE = torch.device("cuda")
@@ -45,8 +47,10 @@ def application(MODE, NAME = None):
         img_STED = Image.open(f"{folder.STED()}/{i}_STED.png")
         img_STED_HC = Image.open(f"{folder.STED_HC()}/{i}_STED_HC.png")
 
+        mse_loss = mse(np.array(img_SR), np.array(img_STED))
+        ssim_loss = ssim(np.array(img_SR), np.array(img_STED))
         fig,ax = plt.subplots(2, 2)
-        fig.suptitle(f'No.{i}, from {type}')
+        fig.suptitle(f'No.{i}, {type}, mse{mse_loss:.2f}, ssim{ssim_loss:.3f}')
         ax[0, 0].imshow(img_Confocal, cmap='hot')
         ax[0, 0].set_title('Confocal')
         ax[0, 1].imshow(img_SR, cmap='hot')

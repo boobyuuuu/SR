@@ -1,18 +1,25 @@
 # 这个文件定义了自定义的评估标准
 import torch; torch.manual_seed(0)
 import torch.nn as nn
+import numpy as np
 from torchvision.transforms.functional import to_pil_image
 
 from functions.custom_ssim import custom_ssim
 
 # 下面出现的img1和img2都是第0维为batch内index的四维张量
 # 计算一个batch的平均结构相似度ssim
+def mse(img1, img2):
+    return np.mean((img1 - img2)**2)
+
+def ssim(img1, img2):
+    return custom_ssim(img1, img2, window_size = 16, data_range = 255.0, sigma = 1.5)
+
 def batch_ssim(img1, img2):
     ssim = torch.zeros(img1.size(0))
     for i in range(img1.size(0)):
         img1_pil = to_pil_image(img1[i])
         img2_pil = to_pil_image(img2[i])
-        ssim[i] = custom_ssim(img1_pil, img2_pil, window_size = 16, data_range = 255.0, sigma = 1.5)
+        ssim[i] = ssim(img1_pil, img2_pil)
     return ssim.mean()
 
 # 计算一个batch的平均峰值信噪比psnr
