@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>3.2 Windows配置虚拟环境 - SR NJU</title>
+    <title>4.6 modules模块 - SR NJU</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "3.2 Windows\u914d\u7f6e\u865a\u62df\u73af\u5883";
-        var mkdocs_page_input_path = "3\\3_2.md";
+        var mkdocs_page_name = "4.6 modules\u6a21\u5757";
+        var mkdocs_page_input_path = "4\\4_6.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -64,39 +64,35 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">三、Python技术文档</span></p>
-              <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../3_1/">3.1 虚拟环境预备知识</a>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3/3_1/">3.1 虚拟环境预备知识</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">3.2 Windows配置虚拟环境</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#windows_1">Windows下常调用的目录</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#windows_2">Windows下配置虚拟环境</a>
-    </li>
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3/3_2/">3.2 Windows配置虚拟环境</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../3_3/">3.3 复现THU-DL-SR记录(暂停维护)</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3/3_3/">3.3 复现THU-DL-SR记录(暂停维护)</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../py_summary/">3.4 python问题与解决</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3/py_summary/">3.4 python问题与解决</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">四、程序技术文档</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_1/">4.1 程序总架构</a>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../4_1/">4.1 程序总架构</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_2/">4.2 根目录</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../4_2/">4.2 根目录</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_3/">4.3 datasets模块</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../4_3/">4.3 datasets模块</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_4/">4.4 functions模块</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../4_4/">4.4 functions模块</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_5/">4.5 manual_saves模块</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../4_5/">4.5 manual_saves模块</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_6/">4.6 modules模块</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">4.6 modules模块</a>
+    <ul class="current">
+    </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_7/">4.7 outputs模块</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../4_7/">4.7 outputs模块</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_8/">4.8 utils模块</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../4_8/">4.8 utils模块</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">五、VAE技术文档</span></p>
@@ -125,8 +121,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">三、Python技术文档</li>
-      <li class="breadcrumb-item active">3.2 Windows配置虚拟环境</li>
+          <li class="breadcrumb-item">四、程序技术文档</li>
+      <li class="breadcrumb-item active">4.6 modules模块</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -135,77 +131,33 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="windows">Windows 配置虚拟环境</h1>
-<h2 id="windows_1">Windows下常调用的目录</h2>
-<p>在Windows系统下涉及到多版本Python时，常常需要手动指定Python的位置，以下位置则尤为重要。</p>
-<pre><code># 非虚拟环境下
-
-# 以Python3.9为例
-
-# Python默认安装位置
-
-C:\Users\账户名\AppData\Local\Programs\Python\Python39\python.exe
-
-# 根环境pip默认安装位置
-
-C:\Users\账户名\AppData\Local\Programs\Python\Python39\Scripts\pip.exe
-</code></pre>
-<pre><code># 虚拟环境下
-
-# Python位置
-Yournamehere\Scripts\Python.exe
-# pip位置
-Yournamehere\Scripts\pip.exe
-</code></pre>
-<h2 id="windows_2">Windows下配置虚拟环境</h2>
-<p>在看接下来的内容时，注意账户名，python版本，环境名都需要自己修改。</p>
-<p>代码的具体意义不再解释，可以自行GPT</p>
-<p>1.建立环境</p>
-<p>在上一级目录下打开终端（cmd或Powershell），执行以下命令</p>
-<pre><code>&amp; &quot;C:\Users\Steven Lin\AppData\Local\Programs\Python\Python39\python.exe&quot; -m venv Yournamehere
-</code></pre>
-<p>终端实际显示</p>
-<pre><code>PS D:\Coding&gt; &amp; &quot;C:\Users\Steven Lin\AppData\Local\Programs\Python\Python39\python.exe&quot; -m venv Yournamehere
-</code></pre>
-<p>无输出内容，会在打开终端的目录创建一个名为Yournamehere的文件夹</p>
-<p>2.检查环境</p>
-<p>在.\Scripts目录下打开终端</p>
-<pre><code>输入：python
-返回：系统环境变量中的Python
-输入：.\python
-返回：本虚拟环境中的Python版本
-</code></pre>
-<pre><code>输入：pip list
-返回：系统环境变量中所配置Python的根环境（根pip）内的第三方库
-输入：.\pip list
-返回：本虚拟环境第三方库（应该非常非常少）
-</code></pre>
-<p><strong>为了防止混淆，非常不建议在  外环境  安装虚拟环境库包</strong></p>
-<p>3.启动环境（Windows版）</p>
-<p>在.\Scripts目录下打开终端</p>
-<pre><code>输入: .\activate
-返回：(Yournamehere) PS D:\Coding\Yournamehere\Scripts&gt;
-</code></pre>
-<p>代表成功进入环境，前边的括号是虚拟环境名</p>
-<p>4.安装第三方库</p>
-<p>在虚拟环境内，使用指令安装第三方库</p>
-<p>例如，Jupyter Notebook就可以在每个环境下分别安装</p>
-<pre><code>pip install 库名称==版本号
-</code></pre>
-<p>5.退出虚拟环境</p>
-<p>在虚拟环境内，使用以下指令退出虚拟环境</p>
-<pre><code>deactivate
-</code></pre>
-<p>6.备注</p>
-<p>在vscode中，可以使用Python Environment Manager来确认自己工作的路径，并使用切换运行具体文件的Python环境（版本）。</p>
-<p><img alt="Python Environment Manager" src="../3.2.1.png" /></p>
-<p><center><em>图3.2.1 Python Environment Manager</em></center></p>
+                <h2 id="2-codestrainipynb-vae">2 codes/Train.ipynb VAE网络训练过程解析</h2>
+<p><strong>这是网络训练过程的程序</strong></p>
+<p>第0步：定义网络参数</p>
+<p>第一步：加载训练集</p>
+<p>第二步：初始化模型，定义LOSS函数与优化器</p>
+<ul>
+<li>建立一个空白的VAE模型</li>
+<li>定义LOSS函数</li>
+<li>定义优化器</li>
+</ul>
+<p>第三步：定义Train函数</p>
+<p>第四步：开始训练，输出可视化，保存训练log，保存训练后网络</p>
+<ul>
+<li>保存LOSS图片</li>
+<li>保存LOSS数据</li>
+<li>保存模型pth</li>
+</ul>
+<h2 id="3-codesapplicationipynb">3 codes/Application.ipynb 训练结果展示规范</h2>
+<p>定义一个训练结果展示的规范</p>
+<p><strong>训练集还原结果</strong></p>
+<p><strong>测试集还原结果</strong></p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../3_1/" class="btn btn-neutral float-left" title="3.1 虚拟环境预备知识"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../3_3/" class="btn btn-neutral float-right" title="3.3 复现THU-DL-SR记录(暂停维护)">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../4_5/" class="btn btn-neutral float-left" title="4.5 manual_saves模块"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../4_7/" class="btn btn-neutral float-right" title="4.7 outputs模块">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -228,10 +180,10 @@ Yournamehere\Scripts\pip.exe
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../3_1/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../4_5/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../3_3/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../4_7/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

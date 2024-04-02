@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>1.2 Git 与 Github 操作 - SR NJU</title>
+    <title>1.2 Markdown 基础语法 - SR NJU</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "1.2 Git \u4e0e Github \u64cd\u4f5c";
+        var mkdocs_page_name = "1.2 Markdown \u57fa\u7840\u8bed\u6cd5";
         var mkdocs_page_input_path = "1\\1_2.md";
         var mkdocs_page_url = null;
       </script>
@@ -45,23 +45,37 @@
               </ul>
               <p class="caption"><span class="caption-text">一、mkdocs & Git</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../1_1/">1.1 mkdocs的使用和书写</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../1_1/">1.1 mkdocs 的安装与使用</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">1.2 Git 与 Github 操作</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">1.2 Markdown 基础语法</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#httpsssh">HTTPS和SSH原理简单解释</a>
+    <li class="toctree-l2"><a class="reference internal" href="#_1">标题</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#https">初始上传（默认HTTPS上传）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#_2">字体</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#git-ssh-gpu">Git 的 SSH 上传（gpu建议使用）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#_3">无序列表</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#_1">如果对自己的上传的注释不满意，想要修改上次的注释</a>
+    <li class="toctree-l2"><a class="reference internal" href="#_4">有序列表</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#_2">如果想要回溯至之前某一次上传的状态</a>
+    <li class="toctree-l2"><a class="reference internal" href="#_5">下划线</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_6">删除线</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_7">代码</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_8">引用</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_9">链接</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_10">图片</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_11">表格</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_12">锚点链接</a>
     </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../1_3/">1.3 markdown 文档</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../1_3/">1.3 Git 与 Github 操作</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">二、服务器技术文档</span></p>
@@ -77,29 +91,44 @@
               </ul>
               <p class="caption"><span class="caption-text">三、Python技术文档</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../3/3_1/">3.1 预备知识</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3/3_1/">3.1 虚拟环境预备知识</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../3/3_2/">3.2 Windows配置虚拟环境</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../3/3_3/">3.3 复现THU-DL-SR记录(outdated)</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3/3_3/">3.3 复现THU-DL-SR记录(暂停维护)</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../3/py_summary/">3.4 python问题与解决</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">四、VAE 模型</span></p>
+              <p class="caption"><span class="caption-text">四、程序技术文档</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_1/">4.1 程序结构</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_1/">4.1 程序总架构</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_2/">4.2 网络结构</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_2/">4.2 根目录</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_3/">4.3 LOSS函数与优化器</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_3/">4.3 datasets模块</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_4/">4.4 FC VAE</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_4/">4.4 functions模块</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_5/">4.5 manual_saves模块</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_6/">4.6 modules模块</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_7/">4.7 outputs模块</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_8/">4.8 utils模块</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">五、实验</span></p>
+              <p class="caption"><span class="caption-text">五、VAE技术文档</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../5/5_1/">5.1 参数修改</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../5/5_1/">5.1 VAE</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../5/5_2/">5.2 FC VAE</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">六、实验</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6/6_1/">6.1 参数修改</a>
                   </li>
               </ul>
       </div>
@@ -117,7 +146,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">一、mkdocs & Git</li>
-      <li class="breadcrumb-item active">1.2 Git 与 Github 操作</li>
+      <li class="breadcrumb-item active">1.2 Markdown 基础语法</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -126,94 +155,92 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="git-github">Git 与 Github 操作</h1>
-<h2 id="httpsssh">HTTPS和SSH原理简单解释</h2>
-<p>定义来说HTTPS和SSH是建立“上传代码的机器”和“Github账户”之间联系的两个协议。</p>
-<p>过程来说：都是 机器 → github账户 → github仓库</p>
-<p>方法来说：使用HTTPS会让你手动输入一次密码；使用SSH会让你一次性生成密钥，放入你的github profile。</p>
-<p>效果来说：HTTPS有时会被墙（SR服务器只有晚上可以用HTTPS），SSH没有这个问题。</p>
-<p><strong>一台机器可以有多个SSH密钥组！一个账号也可以设置多个SSH公钥。</strong></p>
-<p>一台机器连接到一个域名，只能通过切换ssh配置文件来改变使用的密钥。</p>
-<p>例：</p>
-<p>每个人将服务器的文件备份到SR这个项目（在lzh的github下）中，均使用的是lzh的id_rsa.pub文件。</p>
-<p>每个人将服务器的文件备份到VAE256这个private项目（在ly的github下）中，只有使用ylin_rsa.pub文件，才能有权限。</p>
-<p>ly将自己电脑上的文件备份到VAE256这个项目（在ly的github下），使用的是自己电脑上的另一个公钥，比如也叫ylin_rsa.pub文件（公钥的内容一定是不一样的）。</p>
-<h2 id="https">初始上传（默认HTTPS上传）</h2>
-<p>1 本地上传缓存</p>
-<pre><code>git init
-git add . #上传所有文件，这样注释也是对所有进行注释
-git commit -m &quot;注释&quot;
+                <h1 id="markdown">Markdown 基础语法</h1>
+<ul>
+<li>这是一个语法字典，可以根据右边的索引自行查找格式语法。每个索引中含有语法和显示结果。</li>
+<li>如果想要学习更多 Markdown 语法，可以去 <a href="http://www.markdown.cn/">Markdown - 语法说明</a> 学习。</li>
+<li>如果想要试试功能全面、操作便捷的 Markdown 编辑器，<a href="https://www.mdeditor.com/">MdEditor</a> 是个不错的选择。</li>
+<li>VSCode中，拓展"Office Viewer"提供了“代码/可视化快捷切换”的双重 Markdown 编辑体验。</li>
+</ul>
+<h2 id="_1">标题</h2>
+<pre><code># 一级标题
+## 二级标题
+### 三级标题
+#### 四级标题
+##### 五级标题
 </code></pre>
-<p>2 与远程仓库关联</p>
-<pre><code>git remote add connect_name &lt;GitHub 仓库地址&gt;
+<p>注：展示标题显示结果的话，会影响目录显示，所以在此就不做展示了~</p>
+<div id="font"></div>
 
+<h2 id="_2">字体</h2>
+<pre><code>*斜体文本*
+**粗体文本**
+***粗斜体***
 </code></pre>
-<p>查看已经有的connect name：</p>
-<pre><code>git remote -v
+<p><em>斜体文本</em>
+<strong>粗体文本</strong>
+<strong><em>粗斜体</em></strong></p>
+<h2 id="_3">无序列表</h2>
+<pre><code>* 第一项
+* 第二项
+* 第三项
 </code></pre>
-<p>3 建立本地的分支</p>
-<pre><code>git branch &lt;branch_name&gt; #创建一个本地分支
-git checkout -b &lt;branch_name&gt; &lt;connect_name&gt;/&lt;remote_branch_name&gt; #创建一个与远程关联的本地分支
-git checkout &lt;branch_name&gt; #切换到 branch_name
-git branch #查看所有本地分支
-git branch -r #查看当前远程分支
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ul>
+<h2 id="_4">有序列表</h2>
+<pre><code>1. 第一项
+2. 第二项
+3. 第三项
 </code></pre>
-<p>4 上传</p>
-<pre><code>git push &lt;connect_name&gt; &lt;your_branch_name&gt; 将`your_branch_name`分支上传到远程仓库`connect_name`，并且在并在远程仓库中创建一个名为`your_branch_name`的远程分支&lt;remote_name&gt;=&lt;your_branch_name&gt;
-
-git push -u &lt;remote_name&gt; &lt;branch_name&gt; #将当前分支的更改推送到远程仓库，并将本地分支与远程分支进行关联
+<ol>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ol>
+<h2 id="_5">下划线</h2>
+<pre><code>&lt;u&gt;带下划线的文本&lt;/u&gt;
 </code></pre>
-<p><em>注：分支操作比较复杂，一般不会用到</em></p>
-<h2 id="git-ssh-gpu">Git 的 SSH 上传（gpu建议使用）</h2>
-<p>1 在本地生成一个SSH</p>
-<pre><code>$ ssh-keygen -t rsa -C '[邮箱]' -f ~/.ssh/[你的名字]_rsa
-连带方括号进行个人的修改
+<p><code>&lt;u&gt;</code>带下划线的文本 <code>&lt;/u&gt;</code></p>
+<h2 id="_6">删除线</h2>
+<pre><code>~~要删除的文本~~
 </code></pre>
-<p>这里的邮箱没有任何用，只是用来分辨ssh公钥是谁的。</p>
+<p>~~要删除的文本~~</p>
+<h2 id="_7">代码</h2>
+<pre><code>`代码`
+</code></pre>
+<p><code>代码</code></p>
+<h2 id="_8">引用</h2>
+<pre><code>&gt; 引用的文本
+</code></pre>
 <blockquote>
-<p><strong><em>一台机器可以有多个SSH密钥组，一个账号也可以有多个SSH公钥。</em></strong></p>
+<p>引用的文本</p>
 </blockquote>
-<p>2 查看公钥</p>
-<pre><code>cat ~/.ssh/id_rsa.pub
+<h2 id="_9">链接</h2>
+<pre><code>[链接名称](链接地址)
 </code></pre>
-<p>3 复制到Github仓库中的相应位置</p>
-<p><img alt="alt text" src="../1.2.1.png" /></p>
-<p>4 检查SSH连接成功</p>
-<pre><code>ssh -T git@github.com
+<p><a href="https://boobyuuuu.github.io/SR">链接名称</a></p>
+<h2 id="_10">图片</h2>
+<pre><code>![图片无法显示时的替代文字](图片地址)
 </code></pre>
-<p>输出以下则连接成功：</p>
-<pre><code>Hi boobyuuuu! You've successfully authenticated, but GitHub does not provide shell access.
-</code></pre>
-<p>5 将 <code>connect_name</code>改为SSH连接</p>
-<pre><code>git remote set-url connect_name git@github.com:boobyuuuu/SR.git
-</code></pre>
-<p>6 正常上传</p>
-<h2 id="_1">如果对自己的上传的注释不满意，想要修改上次的注释</h2>
-<pre><code>git commit --amend #会打开一个vim文件
-</code></pre>
-<p>附带vim操作介绍：</p>
-<pre><code>#INSERT模式：
-i
-#退出：
-Esc : q #直接退出
-Esc : wq #保存后退出
-</code></pre>
-<h2 id="_2">如果想要回溯至之前某一次上传的状态</h2>
-<p>查看之前push记录</p>
-<pre><code>git reflog
-</code></pre>
-<p>可以得到一系列的ID</p>
-<p>回溯到某一个ID</p>
-<pre><code>git reset --hard &lt;commit_id&gt;
-
-#不可撤销操作！可以使用--soft
+<p><img alt="图片无法显示时的替代文字" src="../1.1.1.png" /></p>
+<h2 id="_11">表格</h2>
+<p><img alt="list" src="../list.png" /></p>
+<p><img alt="list-result" src="../list-result.png" /></p>
+<hr />
+<h2 id="_12">锚点链接</h2>
+<p>此处以对上文 <code>字体</code>标题锚点链接为例：<a href="#font">点击链接到 <code>字体</code></a>。</p>
+<p>此处可能需要一点 HTML 知识。在目标地点 <code>字体</code>标题附近添加一个带有独一 <code>id</code>属性的标签，比如 <code>&lt;div id="font"&gt;&lt;/div&gt;</code>，然后利用 <code>id</code>实现页面内的跳转，语法如下：</p>
+<pre><code>[点击链接到字体](#font)
 </code></pre>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../1_1/" class="btn btn-neutral float-left" title="1.1 mkdocs的使用和书写"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../1_3/" class="btn btn-neutral float-right" title="1.3 markdown 文档">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../1_1/" class="btn btn-neutral float-left" title="1.1 mkdocs 的安装与使用"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../1_3/" class="btn btn-neutral float-right" title="1.3 Git 与 Github 操作">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>

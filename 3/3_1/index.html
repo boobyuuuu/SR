@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>3.1 预备知识 - SR NJU</title>
+    <title>3.1 虚拟环境预备知识 - SR NJU</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "3.1 \u9884\u5907\u77e5\u8bc6";
+        var mkdocs_page_name = "3.1 \u865a\u62df\u73af\u5883\u9884\u5907\u77e5\u8bc6";
         var mkdocs_page_input_path = "3\\3_1.md";
         var mkdocs_page_url = null;
       </script>
@@ -45,11 +45,11 @@
               </ul>
               <p class="caption"><span class="caption-text">一、mkdocs & Git</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../1/1_1/">1.1 mkdocs的使用和书写</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1/1_1/">1.1 mkdocs 的安装与使用</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../1/1_2/">1.2 Git 与 Github 操作</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1/1_2/">1.2 Markdown 基础语法</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../1/1_3/">1.3 markdown 文档</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1/1_3/">1.3 Git 与 Github 操作</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">二、服务器技术文档</span></p>
@@ -65,11 +65,11 @@
               </ul>
               <p class="caption"><span class="caption-text">三、Python技术文档</span></p>
               <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">3.1 预备知识</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">3.1 虚拟环境预备知识</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#python">Python版本共存介绍：</a>
+    <li class="toctree-l2"><a class="reference internal" href="#python">Python版本共存介绍</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#python_1">Python虚拟环境结构：</a>
+    <li class="toctree-l2"><a class="reference internal" href="#python_1">Python虚拟环境结构</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#_2">环境变量相关</a>
     </li>
@@ -77,25 +77,40 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../3_2/">3.2 Windows配置虚拟环境</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../3_3/">3.3 复现THU-DL-SR记录(outdated)</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../3_3/">3.3 复现THU-DL-SR记录(暂停维护)</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../py_summary/">3.4 python问题与解决</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">四、VAE 模型</span></p>
+              <p class="caption"><span class="caption-text">四、程序技术文档</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_1/">4.1 程序结构</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_1/">4.1 程序总架构</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_2/">4.2 网络结构</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_2/">4.2 根目录</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_3/">4.3 LOSS函数与优化器</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_3/">4.3 datasets模块</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_4/">4.4 FC VAE</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_4/">4.4 functions模块</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_5/">4.5 manual_saves模块</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_6/">4.6 modules模块</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_7/">4.7 outputs模块</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_8/">4.8 utils模块</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">五、实验</span></p>
+              <p class="caption"><span class="caption-text">五、VAE技术文档</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../5/5_1/">5.1 参数修改</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../5/5_1/">5.1 VAE</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../5/5_2/">5.2 FC VAE</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">六、实验</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6/6_1/">6.1 参数修改</a>
                   </li>
               </ul>
       </div>
@@ -113,7 +128,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">三、Python技术文档</li>
-      <li class="breadcrumb-item active">3.1 预备知识</li>
+      <li class="breadcrumb-item active">3.1 虚拟环境预备知识</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -123,17 +138,17 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="_1">预备知识</h1>
-<h2 id="python">Python版本共存介绍：</h2>
+<h2 id="python">Python版本共存介绍</h2>
 <p>以Python3.10.6为例，称3.10.*为一个Python大版本，*.6称为小版本。则Python的版本共存原则为</p>
 <p>大版本可共存，小版本不可共存（安装必定报错）。</p>
-<h2 id="python_1">Python虚拟环境结构：</h2>
+<h2 id="python_1">Python虚拟环境结构</h2>
 <p>我们使用原生的venv工具管理Python的虚拟环境</p>
 <p>其它工具如Anaconda、Virtualenv都可以管理虚拟环境。</p>
 <p>在安装Python3.4及以后时，会自动安装pip；在安装Python3.6及以后时，会自动安装venv。</p>
 <p>综上，我们将Python虚拟环境结构示意如下。</p>
 <p>各个大版本下的所有环境相互独立，各个环境下的pip库相互独立。</p>
-<p><img alt="结构图" src="../3.1.1.jpg" />
-<center><em>3.1.1 结构图</em></center></p>
+<p><img alt="结构图" src="../3.1.1.jpg" /></p>
+<p><center><em>3.1.1 结构图</em></center></p>
 <h2 id="_2">环境变量相关</h2>
 <p>我们一般直接在控制台输入的python, pip等指令，实际是一个“快捷指令”</p>
 <p>原因在于安装Python时，已经将这些Python.exe/pip.exe的安装目录添加进了系统Path这一环境变量中。</p>

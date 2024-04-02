@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>1.1 mkdocs的使用和书写 - SR NJU</title>
+    <title>1.1 mkdocs 的安装与使用 - SR NJU</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "1.1 mkdocs\u7684\u4f7f\u7528\u548c\u4e66\u5199";
+        var mkdocs_page_name = "1.1 mkdocs \u7684\u5b89\u88c5\u4e0e\u4f7f\u7528";
         var mkdocs_page_input_path = "1\\1_1.md";
         var mkdocs_page_url = null;
       </script>
@@ -45,27 +45,25 @@
               </ul>
               <p class="caption"><span class="caption-text">一、mkdocs & Git</span></p>
               <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">1.1 mkdocs的使用和书写</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">1.1 mkdocs 的安装与使用</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#mkdocs_1">一、mkdocs教程</a>
+    <li class="toctree-l2"><a class="reference internal" href="#mkdocs_1">安装 mkdocs</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#_1">二、使用说明</a>
+    <li class="toctree-l2"><a class="reference internal" href="#_1">初始化项目</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#21-mkdocs">2.1 安装 mkdocs</a>
+    <li class="toctree-l2"><a class="reference internal" href="#md">书写*.md文件</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#22">2.2 生成一个初始化项目</a>
+    <li class="toctree-l2"><a class="reference internal" href="#_2">本地部署</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#23-markdown">2.3 写markdown</a>
+    <li class="toctree-l2"><a class="reference internal" href="#github-pages">远程部署到GitHub Pages</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#24">2.4 本地预览</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#25-github-pages">2.5 部署到GitHub Pages</a>
+    <li class="toctree-l2"><a class="reference internal" href="#_3">附录</a>
     </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../1_2/">1.2 Git 与 Github 操作</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../1_2/">1.2 Markdown 基础语法</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../1_3/">1.3 markdown 文档</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../1_3/">1.3 Git 与 Github 操作</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">二、服务器技术文档</span></p>
@@ -81,29 +79,44 @@
               </ul>
               <p class="caption"><span class="caption-text">三、Python技术文档</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../3/3_1/">3.1 预备知识</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3/3_1/">3.1 虚拟环境预备知识</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../3/3_2/">3.2 Windows配置虚拟环境</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../3/3_3/">3.3 复现THU-DL-SR记录(outdated)</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3/3_3/">3.3 复现THU-DL-SR记录(暂停维护)</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../3/py_summary/">3.4 python问题与解决</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">四、VAE 模型</span></p>
+              <p class="caption"><span class="caption-text">四、程序技术文档</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_1/">4.1 程序结构</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_1/">4.1 程序总架构</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_2/">4.2 网络结构</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_2/">4.2 根目录</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_3/">4.3 LOSS函数与优化器</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_3/">4.3 datasets模块</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_4/">4.4 FC VAE</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_4/">4.4 functions模块</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_5/">4.5 manual_saves模块</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_6/">4.6 modules模块</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_7/">4.7 outputs模块</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_8/">4.8 utils模块</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">五、实验</span></p>
+              <p class="caption"><span class="caption-text">五、VAE技术文档</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../5/5_1/">5.1 参数修改</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../5/5_1/">5.1 VAE</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../5/5_2/">5.2 FC VAE</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">六、实验</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6/6_1/">6.1 参数修改</a>
                   </li>
               </ul>
       </div>
@@ -121,7 +134,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">一、mkdocs & Git</li>
-      <li class="breadcrumb-item active">1.1 mkdocs的使用和书写</li>
+      <li class="breadcrumb-item active">1.1 mkdocs 的安装与使用</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -130,40 +143,39 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="mkdocs">mkdocs: 本网站的实现工具</h1>
-<h2 id="mkdocs_1">一、mkdocs教程</h2>
-<p>教程网站：</p>
-<p><a href="https://mkdocs-like-code.readthedocs.io/zh-cn/latest">mkdocs-tutorial</a></p>
-<p>它的Github网页(这个网站就是基于mkdocs建立的，里面有源码，很好的案例)：</p>
-<p><a href="https://github.com/MkDocs-Like-Code/mkdocs-tutorial">mkdocs-tutorial Github</a></p>
-<h2 id="_1">二、使用说明</h2>
-<h2 id="21-mkdocs">2.1 安装 mkdocs</h2>
+                <h1 id="mkdocs">mkdocs 的安装与使用</h1>
+<h2 id="mkdocs_1">安装 mkdocs</h2>
 <pre><code>pip install mkdocs
 </code></pre>
-<h2 id="22">2.2 生成一个初始化项目</h2>
-<pre><code>mkdocs new test
-# test为项目名称
+<h2 id="_1">初始化项目</h2>
+<pre><code>mkdocs new 项目名称
 </code></pre>
-<p>会生成如下的文件：</p>
-<p><img alt="image" src="../1.1.png" />
-<center><em>图1.1 初始化</em></center></p>
-<p><strong>docs里面装的就是markdown文件，yml文件是网页的配置，复杂的功能可用HTML语言书写。</strong></p>
-<h2 id="23-markdown">2.3 写markdown</h2>
-<p>makrdown笔记见 1.3</p>
-<h2 id="24">2.4 本地预览</h2>
+<p>生成如下的文件：</p>
+<p><img alt="image" src="../1.1.1.png" /></p>
+<p><center><em>图1.1 初始化</em></center></p>
+<p>docs里面装的就是具体的页面文件，yml文件是页面映射配置，复杂的功能可用HTML语言书写。</p>
+<h2 id="md">书写*.md文件</h2>
+<p>Markdown书写规范和语法见 1.2</p>
+<h2 id="_2">本地部署</h2>
 <pre><code>mkdocs serve
 </code></pre>
-<h2 id="25-github-pages">2.5 部署到GitHub Pages</h2>
+<h2 id="github-pages">远程部署到GitHub Pages</h2>
 <p>在GitHub仓库中，将默认分支设置为gh-pages.运行以下命令：</p>
 <pre><code>mkdocs gh-deploy
 </code></pre>
 <p>这将把site文件夹中的内容推送到gh-pages分支上，使你的文档通过GitHub Pages可访问。</p>
+<p><strong>对于本篇文档，运行根目录下gh-deploy.bat文件即可部署到Github Pages。</strong></p>
+<h2 id="_3">附录</h2>
+<p>教程网站：</p>
+<p><a href="https://mkdocs-like-code.readthedocs.io/zh-cn/latest">mkdocs-tutorial</a></p>
+<p>对应的Github网页：</p>
+<p><a href="https://github.com/MkDocs-Like-Code/mkdocs-tutorial">mkdocs-tutorial Github</a></p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../.." class="btn btn-neutral float-left" title="Index"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../1_2/" class="btn btn-neutral float-right" title="1.2 Git 与 Github 操作">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../1_2/" class="btn btn-neutral float-right" title="1.2 Markdown 基础语法">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>

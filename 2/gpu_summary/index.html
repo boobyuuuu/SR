@@ -45,11 +45,11 @@
               </ul>
               <p class="caption"><span class="caption-text">一、mkdocs & Git</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../1/1_1/">1.1 mkdocs的使用和书写</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1/1_1/">1.1 mkdocs 的安装与使用</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../1/1_2/">1.2 Git 与 Github 操作</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1/1_2/">1.2 Markdown 基础语法</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../1/1_3/">1.3 markdown 文档</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1/1_3/">1.3 Git 与 Github 操作</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">二、服务器技术文档</span></p>
@@ -62,9 +62,11 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">2.4 服务器问题与解决</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#0">0 配置网络</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#1-permission-denied">1 权限问题：Permission denied</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#2">2 查看后台控制台命令</a>
+    <li class="toctree-l2"><a class="reference internal" href="#2">2 后台管理</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#3">3 账户相关</a>
     </li>
@@ -77,29 +79,44 @@
               </ul>
               <p class="caption"><span class="caption-text">三、Python技术文档</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../3/3_1/">3.1 预备知识</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3/3_1/">3.1 虚拟环境预备知识</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../3/3_2/">3.2 Windows配置虚拟环境</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../3/3_3/">3.3 复现THU-DL-SR记录(outdated)</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../3/3_3/">3.3 复现THU-DL-SR记录(暂停维护)</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../3/py_summary/">3.4 python问题与解决</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">四、VAE 模型</span></p>
+              <p class="caption"><span class="caption-text">四、程序技术文档</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_1/">4.1 程序结构</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_1/">4.1 程序总架构</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_2/">4.2 网络结构</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_2/">4.2 根目录</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_3/">4.3 LOSS函数与优化器</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_3/">4.3 datasets模块</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_4/">4.4 FC VAE</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_4/">4.4 functions模块</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_5/">4.5 manual_saves模块</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_6/">4.6 modules模块</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_7/">4.7 outputs模块</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../4/4_8/">4.8 utils模块</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">五、实验</span></p>
+              <p class="caption"><span class="caption-text">五、VAE技术文档</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../5/5_1/">5.1 参数修改</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../5/5_1/">5.1 VAE</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../5/5_2/">5.2 FC VAE</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">六、实验</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../6/6_1/">6.1 参数修改</a>
                   </li>
               </ul>
       </div>
@@ -128,6 +145,20 @@
               
                 <h1 id="_1">服务器问题与解决</h1>
 <p>此文档用来记录服务器操作过程遇到的 问题 与 解决方法</p>
+<h2 id="0">0 配置网络</h2>
+<p>1、主要网口："2: enp4s0f0"，打开就可以访问教育网。除lo网口（loop回环）外，网口均为自动获取ip地址。
+2、访问教育网外网方法：</p>
+<pre><code># 进入root账户
+sudo -i
+# 切换到脚本目录
+cd /home/jzhang/bin
+# 以文本编辑器打开login文件（没有后缀名）
+nano login
+# 写入以下内容
+curl -X POST https://p.nju.edu.cn/api/portal/v1/login -H &quot;Content-type: application/json&quot; -d '{&quot;username&quot;:&quot;统一验证账号&quot;,&quot;password&quot;:&quot;统一验证密码&quot;}'
+# Ctrl+W写入Ctrl+X关闭，运行脚本
+run ./login
+</code></pre>
 <h2 id="1-permission-denied">1 权限问题：Permission denied</h2>
 <p>跨账户操作时常遇到。在一个账户时无法打开另一个账户的文件：</p>
 <pre><code>ylin1@zhliu-X10DRi:~$ cd /home/zhliu
@@ -139,12 +170,11 @@
 <p>解决方法 2 ：使用root身份操作</p>
 <pre><code>#进入root管理员身份：
 sudo -i
-
 #退出root管理员身份：
 exit
 </code></pre>
-<h2 id="2">2 查看后台控制台命令</h2>
-<p>后台运行：</p>
+<h2 id="2">2 后台管理</h2>
+<p>后台运行ipynb文件：</p>
 <pre><code>nohup runipy ./codes/Train.ipynb 2&gt;&amp;1 &amp;
 </code></pre>
 <p>查看后台、查看指定后台、停止后台</p>
@@ -192,7 +222,7 @@ sudo adduser username sudo
 <pre><code>source ~/.bashrc
 </code></pre>
 <h2 id="5">5 介绍账户隐藏文件</h2>
-<p>用<code>ls -a</code>查看所有文件：</p>
+<p>用 <code>ls -a</code>查看所有文件：</p>
 <pre><code>.   .bash_history  .bashrc  .config             .ipython  .local    .python_history  .sudo_as_admin_successful
 ..  .bash_logout   .cache   .ipynb_checkpoints  .jupyter  .profile  snap             .viminfo
 </code></pre>
@@ -218,7 +248,7 @@ sudo adduser username sudo
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../2_3/" class="btn btn-neutral float-left" title="2.3 服务器使用方法"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../../3/3_1/" class="btn btn-neutral float-right" title="3.1 预备知识">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../3/3_1/" class="btn btn-neutral float-right" title="3.1 虚拟环境预备知识">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
