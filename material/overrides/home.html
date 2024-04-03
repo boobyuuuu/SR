@@ -1,0 +1,47 @@
+{#-
+  This file was automatically generated - do not edit
+-#}
+{% extends "main.html" %}
+{% block tabs %}
+  {{ super() }}
+  <style>.md-header{position:initial}.md-main__inner{margin:0}.md-content{display:none}@media screen and (min-width:60em){.md-sidebar--secondary{display:none}}@media screen and (min-width:76.25em){.md-sidebar--primary{display:none}}</style>
+  <section class="mdx-container">
+    <div class="md-grid md-typeset">
+      <div class="mdx-hero">
+        <div class="mdx-hero__image">
+          <img src="assets/images/illustration.png" alt="" width="1659" height="1200" draggable="false">
+        </div>
+        <div class="mdx-hero__content">
+          <h1>SR NJU</h1>
+          <p>{{ config.site_description }}</p>
+          <div>
+            <p>项目Github地址：</p>
+            <ul>
+                <li><a href="https://github.com/boobyuuuu/SR">boobyuuuu/SR: Super-Resolution Nanjing University</a></li>
+            </ul>
+            <p>项目技术文档地址:</p>
+            <ul>
+              <li><a href="https://boobyuuuu.github.io/SR">https://boobyuuuu.github.io/SR</a></li>
+            </ul>
+            <p>代码备份地址:</p>
+            <ul>
+              <li><a href="https://github.com/Steven-Hayatori/VAE256">Steven-Hayatori/VAE256 (github.com)</a></li>
+            </ul>
+            <p>数据集预处理Github地址:</p>
+            <ul>
+              <li><a href="https://github.com/Steven-Hayatori/SR_preprocessing">Steven-Hayatori/SR_preprocessing (github.com)</a></li>
+            </ul>
+        </div>
+          <a href="{{ page.next_page.url | url }}" title="{{ page.next_page.title | e }}" class="md-button md-button--primary">
+            Quick start
+          </a>
+          <a href="{{ page.next_page.next_page.url | url }}" title="Material for MkDocs Insiders" class="md-button">
+            Get Insiders
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+{% block content %}{% endblock %}
+{% block footer %}{% endblock %}
