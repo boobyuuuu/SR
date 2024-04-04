@@ -9,9 +9,9 @@ import matplotlib.pyplot as plt
 import torch; torch.manual_seed(0)
 
 from utils.VAE import VAE
-from utils.reconstruct import reconstrust
 from utils.path_config import folder
 from utils.loss import mse, ssim
+from utils.reconstruct import reconstrust
 from application_parameter import BATCH_SIZE, EPOCHS, LATENTDIM, DO_SAVE
 
 DEVICE = torch.device("cuda")
@@ -50,15 +50,20 @@ def application(MODE, NAME = None):
         mse_loss = mse(np.array(img_SR), np.array(img_STED))
         ssim_loss = ssim(np.array(img_SR), np.array(img_STED))
         fig,ax = plt.subplots(2, 2)
-        fig.suptitle(f'No.{i}, {type}, mse{mse_loss:.2f}, ssim{ssim_loss:.3f}')
+        fig.suptitle(f'No.{i}, from {type}, mse = {mse_loss:.2f}, ssim = {ssim_loss:.3f}')
         ax[0, 0].imshow(img_Confocal, cmap='hot')
         ax[0, 0].set_title('Confocal')
+        ax[0, 0].axis('off')
         ax[0, 1].imshow(img_SR, cmap='hot')
         ax[0, 1].set_title('Super-resolution')
+        ax[0, 1].axis('off')
         ax[1, 0].imshow(img_STED_HC, cmap='hot')
         ax[1, 0].set_title('STED_HC')
+        ax[1, 0].axis('off')
         ax[1, 1].imshow(img_STED, cmap='hot')
         ax[1, 1].set_title('STED')
+        ax[1, 1].axis('off')
+        plt.tight_layout()
         if do_save == 1:
             plt.savefig(f'{folder.output_application()}/{i}.png')
             img_Confocal.save(f'{folder.output_application()}/{i}_Confocal.png')

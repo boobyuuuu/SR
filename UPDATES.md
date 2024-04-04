@@ -1,4 +1,6 @@
 # 这个文件展示了更新记录
+## version 1.1.5
+1、去掉了Application图的坐标轴，美化了图片
 ## version 1.1.4
 1、修改了Readme文件
 ## version 1.1.3
