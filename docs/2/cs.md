@@ -54,8 +54,21 @@ python3 my_script.py
 
 4.提交作业
 
-```python
+```bash
 bsub < job.lsf
 ```
+
+检查作业
+
+```bash
+bjobs
+```
+
+删除作业
+
+```bash
+bkill id
+```
+
 
 
