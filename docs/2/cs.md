@@ -80,29 +80,34 @@ bkill id
 wget https://www.python.org/ftp/python/3.10.12/Python-3.10.12.tgz
 ```
 
-**解压源代码：**解压下载的源代码压缩包，进入解压后的目录：
+**解压源代码：**
+解压下载的源代码压缩包，进入解压后的目录：
 
 ```
 tar -zxvf Python-3.10.12.tgz
 cd Python-3.10.12
 ```
 
-**配置安装目录：**在此步骤中，您可以指定安装 Python 的目标目录，即 --prefix 参数。例如，您可以将 Python 安装到您的主目录下的一个特定目录中：
+**配置安装目录：**
+在此步骤中，您可以指定安装 Python 的目标目录，即 --prefix 参数。例如，您可以将 Python 安装到您的主目录下的一个特定目录中：
 
 ```
 ./configure --prefix=/fsa/home/ww_liuzh/python-3.10.12
 ```
 
-**编译和安装 Python：**运行以下命令编译和安装 Python：
+**编译和安装 Python：**
+运行以下命令编译和安装 Python：
 
 
-```make -j 4
+```
+make -j 4
 make install
 ```
 
 这将会编译 Python 并将其安装到您指定的目标目录下。
 
-**设置环境变量：**为了在命令行中方便地使用新安装的 Python，您可以将其可执行文件目录添加到您的 PATH 环境变量中。在您的 ~/.bashrc 文件中添加以下行：
+**设置环境变量：**
+为了在命令行中方便地使用新安装的 Python，您可以将其可执行文件目录添加到您的 PATH 环境变量中。在您的 ~/.bashrc 文件中添加以下行：
 
 
 ```
