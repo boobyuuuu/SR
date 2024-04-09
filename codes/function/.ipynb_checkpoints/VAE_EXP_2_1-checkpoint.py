@@ -4,37 +4,42 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 class Encoder(nn.Module):
-    def __init__(self):
+    def __init__(self, latent_dim):
         super(Encoder, self).__init__()
-        self.conv1 = nn.Conv2d(1, 16, kernel_size=3, stride=2, padding=1)
-        self.conv2 = nn.Conv2d(16, 32, kernel_size=3, stride=2, padding=1)
-        self.conv3 = nn.Conv2d(32, 64, kernel_size=3, stride=2, padding=1)
-        # 添加新的卷积层
-        self.conv4 = nn.Conv2d(64, 128, kernel_size=3, stride=2, padding=1)
+        self.conv1 = nn.Conv2d(1, 4, kernel_size=3, stride=2, padding=1)
+        self.conv2 = nn.Conv2d(4, 16, kernel_size=3, stride=2, padding=1)
+        self.conv3 = nn.Conv2d(16, 64, kernel_size=3, stride=2, padding=1)
+        self.conv4 = nn.Conv2d(64, 128, kernel_size=3, stride=2, padding=1)  # 新增的卷积层
+        self.fc_mu = nn.Linear(128 * 16 * 16, latent_dim)
+        self.fc_logvar = nn.Linear(128 * 16 * 16, latent_dim)
 
     def forward(self, x):
         x = F.relu(self.conv1(x))
         x = F.relu(self.conv2(x))
         x = F.relu(self.conv3(x))
-        x = F.relu(self.conv4(x))  # 添加新的卷积层的前向传播
-        return x
+        x = F.relu(self.conv4(x))  # 新增的卷积层
+        x = x.view(x.size(0), -1)
+        mu = self.fc_mu(x)
+        logvar = self.fc_logvar(x)
+        return mu, logvar
 
 class Decoder(nn.Module):
-    def __init__(self):
+    def __init__(self, latent_dim):
         super(Decoder, self).__init__()
-        # 添加新的转置卷积层
-        self.convT1 = nn.ConvTranspose2d(128, 64, kernel_size=3, stride=2, padding=1, output_padding=1)
-        self.convT2 = nn.ConvTranspose2d(64, 32, kernel_size=3, stride=2, padding=1, output_padding=1)
-        self.convT3 = nn.ConvTranspose2d(32, 16, kernel_size=3, stride=2, padding=1, output_padding=1)
-        self.convT4 = nn.ConvTranspose2d(16, 1, kernel_size=3, stride=2, padding=1, output_padding=1)
+        self.fc = nn.Linear(latent_dim, 128 * 16 * 16)
+        self.conv4 = nn.ConvTranspose2d(128, 64, kernel_size=4, stride=2, padding=1, output_padding=0)  # 新增的卷积层
+        self.conv3 = nn.ConvTranspose2d(64, 16, kernel_size=4, stride=2, padding=1, output_padding=0)
+        self.conv2 = nn.ConvTranspose2d(16, 4, kernel_size=4, stride=2, padding=1, output_padding=0)
+        self.conv1 = nn.ConvTranspose2d(4, 1, kernel_size=4, stride=2, padding=1, output_padding=0)
 
     def forward(self, x):
-        x = F.relu(self.convT1(x))
-        x = F.relu(self.convT2(x))
-        x = F.relu(self.convT3(x))
-        x = F.relu(self.convT4(x))  # 添加新的转置卷积层的前向传播
+        x = self.fc(x)
+        x = x.view(x.size(0), 128, 16, 16)
+        x = F.relu(self.conv4(x))  # 新增的卷积层
+        x = F.relu(self.conv3(x))
+        x = F.relu(self.conv2(x))
+        x = torch.sigmoid(self.conv1(x))
         return x
-
 
 class VAE(nn.Module):
     def __init__(self, latent_dim):
