@@ -95,6 +95,17 @@ cd Python-3.10.12
 ./configure --prefix=/fsa/home/ww_liuzh/python-3.10.12
 ```
 
+```ssh
+# 发现ssl问题，尝试使用系统已经安装的openssl：
+./configure --prefix=/fsa/home/ww_liuzh/python-3.10.12 --with-openssl=/usr/bin/openssl
+
+# 发现ffi问题，尝试使用系统已经安装的ffi:
+./configure --prefix=/fsa/home/ww_liuzh/python-3.10.12 --with-openssl=/usr/bin/openssl --with-system-ffi=/fs00/software/intel/ps2019u5/intelpython2/include/ffi.h
+```
+
+这个时候发现版本报错，发现不对劲：
+![alt text](image.png)
+
 **编译和安装 Python：**
 运行以下命令编译和安装 Python：
 
