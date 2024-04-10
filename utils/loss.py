@@ -5,15 +5,32 @@ import numpy as np
 from torchvision.transforms.functional import to_pil_image
 
 from functions.custom_ssim import custom_ssim
+from functions.custom_kl import custom_kl
 
-# 下面出现的img1和img2都是第0维为batch内index的四维张量
-# 计算一个batch的平均结构相似度ssim
+# pic2pic计算
 def mse(img1, img2):
-    return np.mean((img1 - img2)**2)
+    return np.mean((img1 - img2)**2)/(255**2)
 
 def ssim(img1, img2):
     return custom_ssim(img1, img2, window_size = 16, data_range = 255.0, sigma = 1.5)
 
+def psnr(img1, img2):
+    return 10 * np.log10((256 ** 2) / mse(img1, img2))
+
+def l1(img1, img2):
+    img1_n = img1 / 255.0
+    img2_n = img2 / 255.0
+    return np.sum(np.square(img1_n - img2_n))
+
+def l2(img1, img2):
+    img1_n = img1 / 255.0
+    img2_n = img2 / 255.0
+    return np.sum(np.abs(img1_n - img2_n))
+
+def kl(img1, img2):
+    return custom_kl(img1, img2)/ (255**2)
+
+# batch2batch计算
 def batch_ssim(img1, img2):
     ssim = torch.zeros(img1.size(0))
     for i in range(img1.size(0)):
@@ -22,30 +39,34 @@ def batch_ssim(img1, img2):
         ssim[i] = ssim(img1_pil, img2_pil)
     return ssim.mean()
 
-# 计算一个batch的平均峰值信噪比psnr
 def batch_psnr(img1, img2, max_val=255.0):
     mse = torch.mean((img1 - img2) ** 2, dim=(1, 2, 3)).cpu().detach().numpy()
     psnr = 20 * torch.log10(torch.tensor(max_val) / torch.sqrt(torch.tensor(mse)))
     return torch.mean(psnr)
 
+def batch_kl(img1, img2):
+    batch_size = img1.size(0)
+    kl_loss = []
+    for i in batch_size:
+        kl_loss.append(kl(img1, img2))
+    return sum(kl_loss)/batch_size
+
 class Custom_criterion1(nn.Module):
     def __init__(self):
         super(Custom_criterion1, self).__init__()
-        self.mse_weight = 0.6
-        self.ssim_weight = 0.4
-        self.psnr_weight = 0
-        self.l1_weight = 0
+        self.mse_weight = 0.7
+        self.kl_weight = 0.3
 
     def forward(self, output, target):
         mse_loss = nn.MSELoss()(output, target)
-        ssim_loss = 1 - batch_ssim(output, target) # 取1-，因为越接近1越好
+        kl_loss = self(target,output)
+        #ssim_loss = 1 - batch_ssim(output, target) # 取1-，因为越接近1越好
         #psnr_loss = -batch_psnr(output, target)  # 取相反数，因为 PSNR 越大越好
         #l1_loss = nn.L1Loss()(output, target)
         mse = mse_loss * self.mse_weight
-        ssim = ssim_loss * self.ssim_weight
+        #ssim = ssim_loss * self.ssim_weight
+        kl = kl_loss * self.kl_weight
         #psnr = psnr_loss * self.psnr_weight
         #l1 = l1_loss * self.l1_weight
-        return mse + ssim
-        return self.mse_weight * mse_loss + self.ssim_weight * ssim_loss
-        return self.mse_weight * mse_loss + self.ssim_weight * ssim_loss + self.psnr_weight * psnr_loss
+        return mse + kl
 

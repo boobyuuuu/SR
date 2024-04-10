@@ -1,4 +1,8 @@
 # 这个文件展示了更新记录
+
+## version 2.0.0
+1、加入诸多loss函数供调用、主要加入标准化kl散度
+2、application 可切换vae模型
 ## version 1.1.5
 1、去掉了Application图的坐标轴，美化了图片
 ## version 1.1.4

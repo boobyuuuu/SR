@@ -38,7 +38,7 @@ def train():
             img_SR = img_SR.to(DEVICE)
             # 这步为止，img_LR,img_HR,img_SR均是[batchsize,不知道是什么,宽，高]
             if current_epoch <= CUT_EPOCH:
-                loss = criterion1(img_SR, img_HR)
+                loss = criterion1(img_SR, img_HR) # 已经考虑过kl散度的顺序问题了，不要修改！
             if current_epoch > CUT_EPOCH:
                 loss = criterion2(img_SR, img_HR) # 每个BATCH的loss，64张图平均
             optimizer.zero_grad()
