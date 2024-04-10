@@ -44,6 +44,12 @@ sudo -i
 exit
 ```
 
+复制文件夹时，常常会遇到权限问题，使用以下代码改变文件夹所有者
+
+```
+sudo chown -R ylin1:ylin1 trained_models
+```
+
 ## 2 后台管理
 
 后台运行ipynb文件：
