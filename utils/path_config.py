@@ -8,13 +8,19 @@ class folder:
         return root
     @classmethod
     def Confocal(cls):
-        return f'{root}/datasets/Confocal/'
+        return f'{root}/datasets/real/Confocal/'
     @classmethod
     def STED(cls):
-        return f'{root}/datasets/STED'
+        return f'{root}/datasets/real/STED/'
     @classmethod
     def STED_HC(cls):
-        return f'{root}/datasets/STED_HC/'
+        return f'{root}/datasets/real/STED_HC/'
+    @classmethod
+    def Confocal_s(cls):
+        return f'{root}/datasets/stimulated/Confocal/'
+    @classmethod
+    def STED_s(cls):
+        return f'{root}/datasets/stimulated/STED/'
     @classmethod
     def output_train(cls):
         return f'{root}/outputs/train_run/'

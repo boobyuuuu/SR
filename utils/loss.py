@@ -32,24 +32,20 @@ def kl(img1, img2):
 
 # batch2batch计算
 def batch_ssim(img1, img2):
-    ssim = torch.zeros(img1.size(0))
+    ssim_loss = torch.zeros(img1.size(0))
     for i in range(img1.size(0)):
         img1_pil = to_pil_image(img1[i])
         img2_pil = to_pil_image(img2[i])
-        ssim[i] = ssim(img1_pil, img2_pil)
-    return ssim.mean()
-
-def batch_psnr(img1, img2, max_val=255.0):
-    mse = torch.mean((img1 - img2) ** 2, dim=(1, 2, 3)).cpu().detach().numpy()
-    psnr = 20 * torch.log10(torch.tensor(max_val) / torch.sqrt(torch.tensor(mse)))
-    return torch.mean(psnr)
+        ssim_loss[i] = ssim(img1_pil, img2_pil)
+    return ssim_loss.mean()
 
 def batch_kl(img1, img2):
-    batch_size = img1.size(0)
-    kl_loss = []
-    for i in batch_size:
-        kl_loss.append(kl(img1, img2))
-    return sum(kl_loss)/batch_size
+    kl_loss = torch.zeros(img1.size(0))
+    for i in range(img1.size(0)):
+        img1_pil = to_pil_image(img1[i])
+        img2_pil = to_pil_image(img2[i])
+        kl_loss[i] = kl(img1_pil, img2_pil)
+    return kl_loss.mean()
 
 class Custom_criterion1(nn.Module):
     def __init__(self):
@@ -59,7 +55,7 @@ class Custom_criterion1(nn.Module):
 
     def forward(self, output, target):
         mse_loss = nn.MSELoss()(output, target)
-        kl_loss = self(target,output)
+        kl_loss = batch_kl(target,output)
         #ssim_loss = 1 - batch_ssim(output, target) # 取1-，因为越接近1越好
         #psnr_loss = -batch_psnr(output, target)  # 取相反数，因为 PSNR 越大越好
         #l1_loss = nn.L1Loss()(output, target)

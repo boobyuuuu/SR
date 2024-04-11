@@ -4,16 +4,15 @@ import torch.nn as nn
 import matplotlib.pyplot as plt
 import torch; torch.manual_seed(0)
 
-from utils.VAE import VAE
+
 from utils.path_config import folder
 from utils.loss import Custom_criterion1
 from utils.dataset_and_dataloader import dataloader
 import functions.simple_functions as simple_functions
-from train_parameter import EPOCHS, CUT_EPOCH, BATCH_SIZE, LATENTDIM, LR_MAX, LR_MIN
+from train_parameter import EPOCHS, CUT_EPOCH, BATCH_SIZE, LATENTDIM, LR_MAX, LR_MIN, VAE_INUSE
 
 DEVICE = 'cuda'
-
-vae = VAE(LATENTDIM).to(DEVICE)
+vae = VAE_INUSE(LATENTDIM).to(DEVICE)
 vae = nn.DataParallel(vae) #将 VAE 包装成一个并行化模型，以便在多个 GPU 上并行地进行训练
 criterion1 = nn.MSELoss()
 criterion2 = Custom_criterion1().cuda()
@@ -22,15 +21,12 @@ name = f'{EPOCHS}epo_{BATCH_SIZE}bth_{LATENTDIM}latn'
 def train():
     simple_functions.clearlog()
     simple_functions.log(f'正在训练模型：{name}')
-    LOSS_PLOT = []
-    EPOCH_PLOT = []
+    LOSS_PLOT, EPOCH_PLOT = [], []
     for current_epoch in range(1, EPOCHS+1):
         vae.train() # 切换成训练模式
         epoch_loss = 0.0
-        # 定义优化器
         current_lr = LR_MIN + 0.5 * (LR_MAX - LR_MIN) * (1 + np.cos(np.pi * current_epoch / EPOCHS))
         optimizer = torch.optim.AdamW(vae.parameters(), lr = current_lr)
-
         for _, (img_LR, img_HR) in enumerate(dataloader):
             img_LR = torch.squeeze(img_LR,dim = 1).to(DEVICE)
             img_HR = torch.squeeze(img_HR,dim = 1).to(DEVICE)
@@ -46,7 +42,6 @@ def train():
             optimizer.step()
             epoch_loss += loss.item()
         mean_epoch_loss = epoch_loss / len(dataloader) # 每个EPOCH的loss，全部数据集的平均
-        #print(f"Epoch [{current_epoch}/{EPOCHS}], Average Loss: {mean_epoch_loss:.6f}, Current_LR:{current_lr:.8f}")
         simple_functions.log(f"Epoch [{current_epoch}/{EPOCHS}], Average Loss: {mean_epoch_loss:.6f}, Current_LR:{current_lr:.8f}")
 
         LOSS_PLOT.append(epoch_loss)
