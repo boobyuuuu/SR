@@ -70,7 +70,7 @@ bjobs
 bkill id
 ```
 
-## 配置环境
+## 配置环境-编译版python(不适合无权限服务器，请看后面的anaconda)
 
 ### 1 下载Python3.10
 
@@ -148,9 +148,10 @@ source ~/python_env/bin/activate
 
 pip 安装相关环境
 
-### 3 创建环境Module
+## 
+## 创建环境Module，超算脚本引用
 
-创建module文件.创建一个名为 "python_env" 的文件，内容如下：
+创建module文件.创建一个名为 "python_env" 的文件，必须位于~，内容如下：
 
 ```bash
 #%Module
