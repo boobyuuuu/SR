@@ -148,7 +148,63 @@ source ~/python_env/bin/activate
 
 pip 安装相关环境
 
-## 
+## anaconda管理python环境
+
+### 安装anaconda
+
+下载压缩包：
+
+```
+wget https://repo.anaconda.com/archive/Anaconda3-2021.11-Linux-x86_64.sh
+```
+
+解压：
+
+```
+bash Anaconda3-2021.11-Linux-x86_64.sh -b -p /fsa/home/ww_liuzh/anaconda
+```
+
+### 设置到系统环境变量
+
+打开.bashrc，并添加路径到环境变量
+
+```
+vim .bashrc
+
+# 添加：
+export PATH="/fsa/home/ww_liuzh/anaconda/bin:$PATH"
+
+# 激活：（我老是忘记）
+source ~/.bashrc
+```
+
+### 创建虚拟环境
+
+```bash
+# 创建（自动继承base所有包）
+conda create -n env_name python=3.10.14
+# 创建（不继承任何包）
+conda create --name env_name python=3.6.8 --no-default-packages
+# 激活
+conda activate env_name
+# 退出
+conda deactivate
+# 列出环境
+conda list
+# 删掉环境
+conda env remove -n env_name
+# 创建环境文件（conda版，pip同样使用。实际上，pip也一样）
+conda env export > environment.yml
+# 还原环境
+conda env create -f environment.yml
+```
+
+### 在jupyter notebook中引用虚拟环境
+
+添加某个虚拟环境到Kernel，见：
+
+[https://zhuanlan.zhihu.com/p/160997771](https://zhuanlan.zhihu.com/p/160997771)
+
 ## 创建环境Module，超算脚本引用
 
 创建module文件.创建一个名为 "python_env" 的文件，必须位于~，内容如下：
