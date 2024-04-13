@@ -17,10 +17,10 @@ class folder:
         return f'{root}/datasets/real/STED_HC/'
     @classmethod
     def Confocal_s(cls):
-        return f'{root}/datasets/stimulated/Confocal/'
+        return f'{root}/datasets/simulated/Confocal/'
     @classmethod
     def STED_s(cls):
-        return f'{root}/datasets/stimulated/STED/'
+        return f'{root}/datasets/simulated/STED/'
     @classmethod
     def output_train(cls):
         return f'{root}/outputs/train_run/'

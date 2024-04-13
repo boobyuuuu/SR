@@ -52,17 +52,19 @@ class Custom_criterion1(nn.Module):
         super(Custom_criterion1, self).__init__()
         self.mse_weight = 0.7
         self.kl_weight = 0.3
+        self.ssim_weight = 0.3
 
     def forward(self, output, target):
         mse_loss = nn.MSELoss()(output, target)
-        kl_loss = batch_kl(target,output)
-        #ssim_loss = 1 - batch_ssim(output, target) # 取1-，因为越接近1越好
+        #kl_loss = batch_kl(target,output)
+        ssim_loss = 1 - batch_ssim(output, target) # 取1-，因为越接近1越好
         #psnr_loss = -batch_psnr(output, target)  # 取相反数，因为 PSNR 越大越好
         #l1_loss = nn.L1Loss()(output, target)
+
         mse = mse_loss * self.mse_weight
-        #ssim = ssim_loss * self.ssim_weight
-        kl = kl_loss * self.kl_weight
+        ssim = ssim_loss * self.ssim_weight
+        #kl = kl_loss * self.kl_weight
         #psnr = psnr_loss * self.psnr_weight
         #l1 = l1_loss * self.l1_weight
-        return mse + kl
+        return mse + ssim
 

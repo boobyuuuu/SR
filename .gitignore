@@ -1,12 +1,8 @@
 # 数据集文件
-/datasets/Confocal/*
-/datasets/STED/*
-/datasets/STED_HC/*
+/datasets/
 # 输出文件
-/maunal_saves/*
-/outputs/application_run/*
-/outputs/demo_run/*
-/outputs/train_run/*
+/maunal_saves/
+/outputs/
 *.npy
 *.png
 *.pth
@@ -14,7 +10,7 @@
 # 缓存文件
 __pycache__/
 # 备份文件
-/backup/*
+/backup/
 .ipynb_checkpoints/
 # 备注文件
 *.nonsense

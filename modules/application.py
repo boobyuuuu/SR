@@ -15,7 +15,7 @@ from application_parameter import BATCH_SIZE, EPOCHS, LATENTDIM
 train_list = [1500, 2000]
 test_list = [5500, 6000]
 train_list_s = [2000, 3000]
-test_list_s = [4500, 5700]
+test_list_s = [4500, 4700]
 
 DEVICE = 'cuda'
 
@@ -51,9 +51,9 @@ def getimg(index, vae, mode):
         loss_list = [mse_loss, ssim_loss, psnr_loss, l1_loss, l2_loss, kl_loss]
         return img_Confocal, img_SR, img_STED, img_STED_HC, loss_list
     if mode == 'simulated':
-        img_Confocal = Image.open(f"{folder.Confocal()}/{index}_Confocal.png")
+        img_Confocal = Image.open(f"{folder.Confocal_s()}/{index}.png")
         img_SR = reconstrust(img_Confocal, vae)
-        img_STED = Image.open(f"{folder.STED()}/{index}_STED.png")
+        img_STED = Image.open(f"{folder.STED_s()}/{index}.png")
 
         img_SR_np = np.array(img_SR)
         img_STED_np = np.array(img_STED) 
@@ -116,7 +116,7 @@ def application(MODE, vae, NAME = None):
     for i in train_list_s + test_list_s:
         type = 'Trained' if i < 4000 else 'Test' 
         img_Confocal, img_SR, img_STED, loss_list = getimg(i, vae, 'simulated')
-        fig,ax = plt.subplots(3,1)
+        fig,ax = plt.subplots(1,3)
         fig.suptitle(f'No.{i}, from {type}, mse = {loss_list[0]:.3e}, ssim = {loss_list[1]:.4f}\n psnr = {loss_list[2]:.3f}, l1 = {loss_list[3]:.3f}, l2 = {loss_list[4]:.3f}, kl = {loss_list[5]:.3f}')
         ax[0].imshow(img_Confocal, cmap='hot')
         ax[0].set_title('Confocal')
@@ -135,7 +135,7 @@ def application(MODE, vae, NAME = None):
         img_STED_HC.save(f'{save_folder}/s_{i}_STED_HC.png')
 
     # 真实画组图
-    fig, axs = plt.subplots(len(train_list+test_list), 4)  # 创建一个ix4的子图网格
+    fig, axs = plt.subplots(len(train_list+test_list), 4, figsize=(50, 40))  # 创建一个ix4的子图网格
     r = 0
     for i in train_list + test_list:
         type = 'Trained' if i < 5000 else 'Test' if i > 5200 else 'Error'
@@ -153,9 +153,9 @@ def application(MODE, vae, NAME = None):
     plt.savefig(f'{save_folder}/real_all.png')
 
     # 模拟画组图
-    fig, axs = plt.subplots(len(train_list_s+test_list_s), 3)  # 创建一个ix3的子图网格
+    fig, axs = plt.subplots(len(train_list_s+test_list_s), 3, figsize=(50, 40))  # 创建一个ix3的子图网格
     r = 0
-    for i in train_list + test_list:
+    for i in train_list_s + test_list_s:
         type = 'Trained' if i < 4000 else 'Test' 
         img_Confocal, img_SR, img_STED, loss_list = getimg(i, vae, 'simulated')
         axs[r, 0].imshow(img_Confocal, cmap='hot')
