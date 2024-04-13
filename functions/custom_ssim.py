@@ -2,6 +2,7 @@
 import numpy as np
 from scipy.signal import convolve2d
 
+# 输入的img为Image库打开的图像
 def custom_ssim(img1, img2, window_size=11, data_range=255.0, sigma=1.5):
     K1 = 0.01
     K2 = 0.03

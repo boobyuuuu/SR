@@ -1,5 +1,10 @@
 # 这个文件展示了更新记录
 
+## version 2.3.0
+1、简化代码
+2、合并application和demo。
+3、重写application的module，写了一半
+4、统一了loss的输入输出
 ## version 2.2.0
 1、修复上个版本的很多bug。
 2、可以用于模拟数据集的训练了。

@@ -10,7 +10,6 @@ from torchvision.transforms import transforms
 
 from utils.path_config import folder
 from utils.loss import mse, ssim, psnr, l1, l2, kl
-from application_parameter import BATCH_SIZE, EPOCHS, LATENTDIM
 
 train_list = [1500, 2000]
 test_list = [5500, 6000]
@@ -32,6 +31,10 @@ def reconstrust(img, model):
     img = Image.fromarray(img)
     return img
 
+def getloss(img_SR, img_STED):
+    # 不要动kl散度的顺序！
+    return [mse(img_SR, img_STED), ssim(img_SR, img_STED), psnr(img_SR, img_STED), l1(img_SR, img_STED), l2(img_SR, img_STED), kl(img_STED, img_SR)]
+
 def getimg(index, vae, mode):
     if mode == 'real':
         img_Confocal = Image.open(f"{folder.Confocal()}/{index}_Confocal.png")
@@ -39,47 +42,26 @@ def getimg(index, vae, mode):
         img_STED = Image.open(f"{folder.STED()}/{index}_STED.png")
         img_STED_HC = Image.open(f"{folder.STED_HC()}/{index}_STED_HC.png")
 
-        img_SR_np = np.array(img_SR)
-        img_STED_np = np.array(img_STED) 
-
-        mse_loss = mse(img_SR_np, img_STED_np)
-        ssim_loss = ssim(img_SR_np, img_STED_np)
-        psnr_loss = psnr(img_SR_np, img_STED_np)
-        l1_loss = l1(img_SR_np, img_STED_np)
-        l2_loss = l2(img_SR_np, img_STED_np)
-        kl_loss = kl(img_STED_np, img_SR_np)
-        loss_list = [mse_loss, ssim_loss, psnr_loss, l1_loss, l2_loss, kl_loss]
+        loss_list = getloss(img_SR, img_STED)
         return img_Confocal, img_SR, img_STED, img_STED_HC, loss_list
     if mode == 'simulated':
         img_Confocal = Image.open(f"{folder.Confocal_s()}/{index}.png")
         img_SR = reconstrust(img_Confocal, vae)
         img_STED = Image.open(f"{folder.STED_s()}/{index}.png")
+        
+        loss_list = getloss(img_SR, img_STED)
+        return img_Confocal, img_SR, img_STED, loss_list
 
-        img_SR_np = np.array(img_SR)
-        img_STED_np = np.array(img_STED) 
-
-        mse_loss = mse(img_SR_np, img_STED_np)
-        ssim_loss = ssim(img_SR_np, img_STED_np)
-        psnr_loss = psnr(img_SR_np, img_STED_np)
-        l1_loss = l1(img_SR_np, img_STED_np)
-        l2_loss = l2(img_SR_np, img_STED_np)
-        kl_loss = kl(img_STED_np, img_SR_np)
-    loss_list = [mse_loss, ssim_loss, psnr_loss, l1_loss, l2_loss, kl_loss]
-    return img_Confocal, img_SR, img_STED, loss_list
-
-def application(MODE, vae, NAME = None):
-    if MODE == 'parameter':
-        batch_size, epochs, latentdim = BATCH_SIZE, EPOCHS, LATENTDIM
-        model = f'{folder.output_train()}/model_{epochs}epo_{batch_size}bth_{latentdim}latn.pth'
-        save_folder = folder.output_application()
-    elif MODE == 'demo':
-        target_folder = f'{folder.manual_saves()}/{NAME}'
+def application(mode, vae, name):
+    save_folder = folder.output_application()
+    if mode == 'normal':
+        model = f'{folder.output_train()}/{name}'
+        latentdim = int(re.findall(r'\d+', name)[-1])
+    elif mode == 'demo':
+        target_folder = f'{folder.manual_saves()}/{name}'
         model_name = [file for file in os.listdir(target_folder) if file.endswith(".pth")][0]
         model = f'{target_folder}/{model_name}'
-        epochs = int(re.findall(r'\d+', model_name)[-3])
-        batch_size = int(re.findall(r'\d+', model_name)[-2])
         latentdim = int(re.findall(r'\d+', model_name)[-1])
-        save_folder = folder.output_demo()
 
     with torch.no_grad(): # 不要输出
         vae = vae(latentdim).to(DEVICE)
@@ -132,10 +114,9 @@ def application(MODE, vae, NAME = None):
         img_Confocal.save(f'{save_folder}/s_{i}_Confocal.png')
         img_SR.save(f'{save_folder}/s_{i}_SR.png')
         img_STED.save(f'{save_folder}/s_{i}_STED.png')
-        img_STED_HC.save(f'{save_folder}/s_{i}_STED_HC.png')
 
     # 真实画组图
-    fig, axs = plt.subplots(len(train_list+test_list), 4, figsize=(50, 40))  # 创建一个ix4的子图网格
+    fig, axs = plt.subplots(len(train_list+test_list), 4, figsize=(20, 15))  # 创建一个ix4的子图网格
     r = 0
     for i in train_list + test_list:
         type = 'Trained' if i < 5000 else 'Test' if i > 5200 else 'Error'
@@ -153,7 +134,7 @@ def application(MODE, vae, NAME = None):
     plt.savefig(f'{save_folder}/real_all.png')
 
     # 模拟画组图
-    fig, axs = plt.subplots(len(train_list_s+test_list_s), 3, figsize=(50, 40))  # 创建一个ix3的子图网格
+    fig, axs = plt.subplots(len(train_list_s+test_list_s), 3, figsize=(20, 15))  # 创建一个ix3的子图网格
     r = 0
     for i in train_list_s + test_list_s:
         type = 'Trained' if i < 4000 else 'Test' 

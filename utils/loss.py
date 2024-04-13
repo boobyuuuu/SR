@@ -7,28 +7,36 @@ from torchvision.transforms.functional import to_pil_image
 from functions.custom_ssim import custom_ssim
 from functions.custom_kl import custom_kl
 
-# pic2pic计算
+# pic2pic计算，输入均为Image打开的图片文件
 def mse(img1, img2):
+    img1 = np.array(img1)
+    img2 = np.array(img2)
     return np.mean((img1 - img2)**2)/(255**2)
 
 def ssim(img1, img2):
     return custom_ssim(img1, img2, window_size = 16, data_range = 255.0, sigma = 1.5)
 
 def psnr(img1, img2):
+    img1 = np.array(img1)
+    img2 = np.array(img2)
     return 10 * np.log10((256 ** 2) / mse(img1, img2))
 
 def l1(img1, img2):
+    img1 = np.array(img1)
+    img2 = np.array(img2)
     img1_n = img1 / 255.0
     img2_n = img2 / 255.0
     return np.sum(np.square(img1_n - img2_n))
 
 def l2(img1, img2):
+    img1 = np.array(img1)
+    img2 = np.array(img2)
     img1_n = img1 / 255.0
     img2_n = img2 / 255.0
     return np.sum(np.abs(img1_n - img2_n))
 
 def kl(img1, img2):
-    return custom_kl(img1, img2)/ (255**2)
+    return custom_kl(img1, img2)
 
 # batch2batch计算
 def batch_ssim(img1, img2):
