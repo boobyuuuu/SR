@@ -152,6 +152,10 @@ pip 安装相关环境
 
 ### 安装anaconda
 
+#### x86架构
+
+`uname -a` 查看架构类型
+
 下载压缩包：
 
 ```
@@ -162,6 +166,12 @@ wget https://repo.anaconda.com/archive/Anaconda3-2021.11-Linux-x86_64.sh
 
 ```
 bash Anaconda3-2021.11-Linux-x86_64.sh -b -p /fsa/home/ww_liuzh/anaconda
+```
+
+#### aarch64架构（华为服务器）
+
+```
+wget -c https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-aarch64.sh
 ```
 
 ### 设置到系统环境变量
